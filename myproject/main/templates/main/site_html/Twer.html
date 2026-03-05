@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Промыслы и ремесла народов Тверской области</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .conclusion-box {
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be;
+            font-size: 1.1em;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .people-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0077be, #005a8c);
+        }
+
+        .about-image {
+            background: linear-gradient(90deg, #0077be, #005a8c);
+            height: 400px;
+            border-radius: 10px;
+        }
+        
+        .video-css{
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .crafts-list {
+            margin-top: 15px;
+        }
+
+        .crafts-list h4 {
+            color: #0077be;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .crafts-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .crafts-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #b3e0ff;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .crafts-list li:before {
+            content: '•';
+            color: #0077be;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .crafts-section {
+            margin-bottom: 50px;
+        }
+
+        .craft-category {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be;
+        }
+
+        .craft-category h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .craft-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e6f2ff;
+        }
+
+        .craft-item:last-child {
+            border-bottom: none;
+        }
+
+        .craft-item h4 {
+            color: #0077be;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .table-section {
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.1);
+        }
+
+        .summary-table th {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .summary-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e6f2ff;
+        }
+
+        .summary-table tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        .summary-table tr:hover {
+            background: #e6f2ff;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .final-conclusion {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .final-conclusion h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Промыслы и ремесла народов Тверской области</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/tver.jpg" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <div class="conclusion-box">
+                    <h2 class="section-title">Этнокультурная панорама региона</h2>
+                    <p>Тверская область демонстрирует классическую модель, где русское население составляет основу во всех сферах экономики. <span class="highlight">Тверские карелы</span> сохранили свою традиционную сельскохозяйственную и лесную специализацию. Народы Кавказа (<span class="highlight">армяне, азербайджанцы</span>) в новой среде проявили предпринимательскую жилку, заняв четкие экономические ниши в торговле и сфере услуг. <span class="highlight">Украинцы и белорусы</span> полностью интегрировались в местную экономику. <span class="highlight">Татары</span> исторически и сегодня ориентированы на торговлю и бизнес, а <span class="highlight">цыгане</span> сохраняют наиболее самобытные и специфические виды занятий.</p>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <video width="611" height="390" controls autoplay muted class="video-css">
+                    <source src="Video/СТАРООБРЯДЧЕСТВО_Тверская область 360.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="crafts-section">
+                <h2 class="section-title">Промыслы и ремесла народов Тверской области</h2>
+
+                <!-- Русские промыслы -->
+                <div class="craft-category">
+                    <img src="Img/8.webp" alt="Якуты" class="people-image">
+                    <h3>Русские промыслы</h3>
+                    <p>Тверская земля — один из старейших центров русской ремесленной культуры, где промыслы были тесно связаны с природными ресурсами и торговыми путями.</p>
+                    
+                    <div class="craft-item">
+                        <h4>Торжокское золотное шитьё</h4>
+                        <p>Уникальный промысел, известный с XIII века. Вышивка производится золотыми, серебряными нитями, канителью по сафьяну, бархату или сукну. Сохранился до наших дней на фабрике «Торжокские золотошвеи».</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Калязинское кружево</h4>
+                        <p>Плетение на коклюшках, известное с XVII века. Отличается сложными геометрическими узорами, легкостью и изяществом. Сегодня энтузиасты и мастера возрождают это ремесло.</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Валдайский колокольчик</h4>
+                        <p>Литейное производство было широко распространено в юго-западных районах Тверской губернии. Каждый колокольчик имел уникальное звучание и орнамент.</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Льняные промыслы</h4>
+                        <p>Тверской лён славился по всей России. Комплексный промысел: выращивание льна, его обработка, прядение и ткачество. Ткали грубый холст, тонкое полотно, узорные скатери и половики.</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Гончарный промысел</h4>
+                        <p>Центры в селах Медное, Кушалино, Городня. Изготавливали красноглиняную и чернолощеную керамику: горшки, крынки, миски, игрушки-свистульки.</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Конаковский фаянс</h4>
+                        <p>Промысел, выросший в крупную промышленность. Производили высокохудожественный фаянс с полихромной росписью, печатью, люстровыми покрытиями.</p>
+                    </div>
+                    
+                    <div class="craft-item">
+                        <h4>Кимрский сапожный промысел</h4>
+                        <p>С XVI века Кимры и окрестные села — крупнейший центр кожевенного и обувного дела. Вручную шили сапоги, башмаки, поршни.</p>
+                    </div>
+                </div>
+
+                <!-- Промыслы тверских карел -->
+                <div class="craft-category">
+                    <img src="Img/9.jpg" alt="Якуты" class="people-image">
+                    <h3>Промыслы тверских карел</h3>
+                    <p>Ремесла карел были приспособлены к жизни в лесном краю и отражали их эстетические традиции.</p>
+                    
+                    <div class="crafts-list">
+                        <ul>
+                            <li><strong>Резьба по дереву:</strong> Украшали наличники, причелины геометрическим орнаментом (солярные знаки, ромбы, зигзаги)</li>
+                            <li><strong>Ткачество:</strong> Техники браного и закладного ткачества с красно-белыми и красно-синими цветовыми гаммами</li>
+                            <li><strong>Плетение из бересты и корня сосны:</strong> Туеса для хранения продуктов, корзины, солонки, лапти</li>
+                            <li><strong>Войлоковаляние:</strong> Из шерсти овец катали войлок для одежды, обуви и предметов быта</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Другие народы -->
+                <div class="peoples-grid">
+                    <div class="people-card">
+                        <img src="Img/NAR/1.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Украинцы</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Декоративная роспись</li>
+                                <li>Вышивка (вишивка)</li>
+                                <li>Гончарство</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Вышиванки</li>
+                                <li>Рушники</li>
+                                <li>Расписная керамика</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Img/NAR/2.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Армяне</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Ковроткачество</li>
+                                <li>Ювелирное дело</li>
+                                <li>Резьба по камню</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Ворсовые ковры</li>
+                                <li>Серебряные украшения</li>
+                                <li>Декоративные хачкары</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Img/NAR/3.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Азербайджанцы</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Ковроткачество</li>
+                                <li>Изготовление медной посуды</li>
+                                <li>Шелкоткачество</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Халы (ковры)</li>
+                                <li>Чеканные кувшины</li>
+                                <li>Шелковые платки</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Img/NAR/4.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Белорусы</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Соломоплетение</li>
+                                <li>Ткачество</li>
+                                <li>Гончарство</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Обереги-пауки</li>
+                                <li>Узорные рушники</li>
+                                <li>Чернолощеная керамика</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Img/NAR/5.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Татары</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Кожевенное дело</li>
+                                <li>Ювелирное искусство</li>
+                                <li>Золотная вышивка</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Ичиги (обувь)</li>
+                                <li>Тюбетейки</li>
+                                <li>Серебряные украшения</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Img/NAR/6.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Цыгане (Рома)</h3>
+                        <div class="crafts-list">
+                            <h4>Промыслы:</h4>
+                            <ul>
+                                <li>Кузнечное дело</li>
+                                <li>Торговля лошадьми</li>
+                                <li>Музыкальное искусство</li>
+                            </ul>
+                            <h4>Изделия:</h4>
+                            <ul>
+                                <li>Кованые изделия</li>
+                                <li>Музыкальные перфомансы</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-section">
+                <h2 class="section-title">Сводная таблица: Промыслы народов Тверской области</h2>
+                
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Народ</th>
+                            <th>Ключевые промыслы и ремесла</th>
+                            <th>Характерные изделия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Русские</strong></td>
+                            <td>Золотное шитье, кружевоплетение, литье колокольчиков, льняное ткачество, гончарство, фаянс, кожевенно-обувной промысел</td>
+                            <td>Вышитые картины, кружевные воротники, колокольчики, холсты, половики, глиняная посуда, фаянсовые сервизы, сапоги</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Тверские карелы</strong></td>
+                            <td>Резьба по дереву, узорное ткачество, плетение из бересты, войлоковаляние</td>
+                            <td>Резные наличники, узорные полотенца, туеса, корзины, валенки</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Украинцы</strong></td>
+                            <td>Декоративная вышивка, роспись, гончарство</td>
+                            <td>Вышиванки, рушники, расписные тарелки, глечики</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Армяне</strong></td>
+                            <td>Ковроткачество, ювелирное дело, резьба по камню</td>
+                            <td>Ворсовые ковры, серебряные украшения, декоративные хачкары</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Азербайджанцы</strong></td>
+                            <td>Ковроткачество, изготовление медной посуды, шелкоткачество</td>
+                            <td>Халы, чеканные кувшины и подносы, шелковые платки</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Белорусы</strong></td>
+                            <td>Соломоплетение, ткачество, гончарство</td>
+                            <td>Солнечные обереги-пауки, узорные рушники, чернолощеная керамика</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Татары</strong></td>
+                            <td>Кожевенное дело, ювелирное искусство, золотная вышивка</td>
+                            <td>Ичиги, тюбетейки, серебряные украшения, сафьяновые шкатулки</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Цыгане (Рома)</strong></td>
+                            <td>Кузнечное дело, торговля и дрессировка лошадей, музыкальное искусство</td>
+                            <td>Кованые изделия, музыкальные перфомансы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="final-conclusion">
+                <h3>Культурное наследие Тверской области</h3>
+                <p>Промыслы Тверской области создают богатейшую многонациональную палитру ремесел. Если русские промыслы (<span class="highlight">золотная вышивка, кружево</span>) стали визитной карточкой всего региона, то ремесла других народов (<span class="highlight">карельская резьба, татарское ювелирное дело, цыганская ковка</span>) сохраняют свою уникальную этническую идентичность и являются живым наследием, передаваемым из поколения в поколение.</p>
+                <p style="margin-top: 15px;">Многие из этих промыслов сегодня активно возрождаются благодаря энтузиастам и национально-культурным автономиям, составляя неотъемлемую часть культурного богатства Тверского края.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

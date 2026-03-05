@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>В разработке</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #e2efff 0%, #d9e9fa 30%, #f4e9fe 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .glass-panel {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 4rem 3rem;
+            box-shadow: 
+                0 30px 60px -20px rgba(70, 100, 150, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+            border: 1px solid rgba(255,255,255,0.6);
+            text-align: center;
+        }
+
+        .floating-icon {
+            width: 140px;
+            height: 140px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 15px 25px -10px rgba(110, 140, 200, 0.4);
+            border: 3px solid white;
+            transition: transform 0.5s ease;
+        }
+
+        .glass-panel:hover .floating-icon {
+            transform: rotate(5deg) scale(1.02);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            background: linear-gradient(145deg, #1e2f4b, #2f4b6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: rgba(148, 181, 226, 0.3);
+            backdrop-filter: blur(4px);
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            color: #1e405e;
+            border: 1px solid rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: #334e68;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 350;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .button {
+            text-decoration: none;
+            padding: 14px 34px;
+            border-radius: 100px;
+            font-weight: 500;
+            transition: 0.2s;
+            background: white;
+            color: #1e3a5f;
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 8px 18px -12px #335e88;
+            backdrop-filter: blur(10px);
+            font-size: 1.05rem;
+        }
+
+        .button-faint {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .button:hover {
+            background: white;
+            box-shadow: 0 15px 30px -10px #4b6f94;
+            transform: translateY(-3px);
+            border-color: white;
+        }
+
+        .tiny-note {
+            color: #4d6a87;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tiny-note span {
+            opacity: 0.7;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-panel">
+        <div class="floating-icon">
+            🚧
+        </div>
+        <h1>Мы ещё строим</h1>
+        <div class="highlight-badge">
+            ранний доступ · dev
+        </div>
+        <p>
+            Эта страница — как чистый холст. Мы уже начали работу, 
+            но ей нужно ещё немного заботы и кода, чтобы стать той самой.
+        </p>
+        <div class="button-group">
+            <a href="/" class="button">Главная</a>
+            <a href="/about" class="button button-faint">О проекте</a>
+        </div>
+        <div class="tiny-note">
+            <span>⏳</span> Скоро здесь появится контент <span>✨</span>
+        </div>
+    </div>
+</body>
+</html>

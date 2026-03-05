@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ямало-Ненецкий автономный округ - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .intro-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+            text-align: center;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .chapter-section {
+            margin-bottom: 50px;
+        }
+
+        .chapter-title {
+            color: #005a8c;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 5px solid #0077be;
+        }
+
+        .subchapter {
+            margin-bottom: 30px;
+        }
+
+        .subchapter h3 {
+            color: #0077be;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .craft-card {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .craft-card:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .craft-card h4 {
+            color: #005a8c;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .materials-list {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .materials-list h5 {
+            color: #0077be;
+            margin-bottom: 8px;
+        }
+
+        .modern-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .modern-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .links-section {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .links-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #b3e0ff;
+        }
+
+        .link-item a {
+            color: #0077be;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .link-item a:hover {
+            color: #005a8c;
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid,
+            .crafts-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ямало-Ненецкий автономный округ</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/Imal.jpg" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <div class="intro-card">
+                    <h2 class="section-title">Салехард - культурный центр Ямала</h2>
+                    <p>Салехард — административный центр Ямало-Ненецкого автономного округа и важный культурный и экономический центр региона. Этот город расположен на севере России и является домом для коренных народов Севера, таких как <span class="highlight">ненцы, ханты и манси</span>, а также для русскоязычного населения.</p>
+                    <p>Традиционный образ жизни коренных народов включает оленеводство, охоту и рыболовство, а также создание уникальных ремесел из оленьих шкур, меха и замши, таких как одежда, утварь и украшения.</p>
+                    <p>Регион богат природными ресурсами, среди которых нефть, газ, золото и уголь, что делает его важным центром добывающей промышленности и энергетики.</p>
+                </div>
+
+                <h2 class="section-title">Коренные народы Ямала</h2>
+                <div class="peoples-grid">
+                    <div class="people-card">
+                        <img src="Imal/4.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Ханты</h3>
+                        <p>Угорский народ, также известный как остяки. Сохраняют традиционные промыслы и культурные традиции.</p>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Imal/2.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Ненцы</h3>
+                        <p>Коренной народ Севера, включая лесных ненцев. Традиционно занимаются оленеводством.</p>
+                    </div>
+
+                    <div class="people-card">
+                        <img src="Imal/3.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Селькупы</h3>
+                        <p>Третий коренной народ, проживающий в Салехарде и на территории Ямала.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-section">
+                <h2 class="chapter-title">I. ИСТОРИКО-КУЛЬТУРНЫЙ КОНТЕКСТ</h2>
+                
+                <div class="subchapter">
+                    <h3>1. История коренных народов</h3>
+                    <p><span class="highlight">Ненцы и ханты</span> — финно-угорские народы, заселявшие Западную Сибирь с доисторических времен. Археологические находки указывают, что их предки занимались охотой, рыболовством, собирательством еще в каменном веке.</p>
+                    <p>В VIII–IX веках сформировались крупные племенные союзы, каждая из которых имела свою структуру, общинные институты и культурные традиции.</p>
+                </div>
+
+                <div class="subchapter">
+                    <h3>2. Образ жизни до современности</h3>
+                    <p>В эпоху кочевников — передвижение по сезонным маршрутам между местами охоты и рыболовства. Основные жилища — <span class="highlight">чихи (плоские юрты)</span>, сделанные из дерева, бересты, меха и костей.</p>
+                    <p>Религия — важная часть культуры, связанная с поклонением природным силам и животным, а также с шаманизмом.</p>
+                </div>
+            </div>
+
+            <div class="chapter-section">
+                <h2 class="chapter-title">II. НОРМАТИВНОЕ И СОЦИАЛЬНОЕ УСТРОЙСТВО</h2>
+                <p>Социальная структура Салехарда и Ямало-Ненецкого автономного округа в целом характеризуется многообразием и традиционными связями. В коренных общинах сохраняются <span class="highlight">клановые и родовые связи</span>, которые играют важную роль в социальной организации и поддержании культурных традиций.</p>
+                <p>Важное место занимают <span class="highlight">шаманы</span> — духовные лидеры, целители и посредники с духовным миром, сохраняющие связь с древними верованиями и обрядами.</p>
+                <p>Также в регионе распространены певцы-терапевты и хранители традиций, которые передают знания, обряды и ремесла из поколения в поколение, сохраняя уникальную культурную самобытность народа.</p>
+            </div>
+
+            <div class="chapter-section">
+                <h2 class="chapter-title">III. ТРАДИЦИОННЫЕ РЕМЁСЛА</h2>
+                
+                <div class="subchapter">
+                    <h3>Ткачество и орнаменты</h3>
+                    <div class="materials-list">
+                        <h5>Материалы:</h5>
+                        <p>береста, шерсть оленя, лыка, лубяные волокна</p>
+                    </div>
+                    <div class="crafts-grid">
+                        <div class="craft-card">
+                            <h4>Техники</h4>
+                            <p>Вышивка бисером и меховыми полосками. Ткачество на ручных станках из нитей, полученных из растительных и животных материалов.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Узоры</h4>
+                            <p>Использование геометрических узоров — кривулы, зигзаги, ромбы, волнообразные линии. Символы солнца, воды, животных.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Продукты</h4>
+                            <p>Тульи, пояса, одеяла, коврики, покрывала с сакральными знаками.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subchapter">
+                    <h3>Меховое и кожевенное дело</h3>
+                    <div class="materials-list">
+                        <h5>Основные меха:</h5>
+                        <p>олень, лось, бобр, белка, пушной зверь</p>
+                    </div>
+                    <div class="crafts-grid">
+                        <div class="craft-card">
+                            <h4>Техники обработки</h4>
+                            <p>Снятие шкур, утепление, шитьё. Использование игл из кости для шитья и соединения меха.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Украшение</h4>
+                            <p>Вышивка, аппликация, меховые вставки с орнаментами.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Изделия</h4>
+                            <p>Меховые шубы, шапки, перчатки, сапоги с традиционными узорами.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subchapter">
+                    <h3>Изделия из рогов и костей</h3>
+                    <div class="crafts-grid">
+                        <div class="craft-card">
+                            <h4>Рога оленя и лося</h4>
+                            <p>Используются для изготовления ножей, игл, украшений, игрушек и предметов быта.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Кости</h4>
+                            <p>Для изготовления орудий — стрел, крючков, амулетов с символическим значением.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subchapter">
+                    <h3>Одежда и украшения</h3>
+                    <div class="crafts-grid">
+                        <div class="craft-card">
+                            <h4>Традиционный костюм</h4>
+                            <p>Меховые шубы, шапки, рукавицы, сапоги из меха оленя, лося и кожи.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Украшения</h4>
+                            <p>Вышивка, бисер, меховые аппликации как обозначение статуса и функций.</p>
+                        </div>
+                        <div class="craft-card">
+                            <h4>Обереги</h4>
+                            <p>Из серебра, бисера, костей, рогов, перьев с символикой солнца, звезд, животных.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-section">
+                <h2 class="chapter-title">IV. ОБРЯДЫ, КУЛЬТУРА И РИТУАЛЫ</h2>
+                <div class="crafts-grid">
+                    <div class="craft-card">
+                        <h4>Купальские обряды</h4>
+                        <p>Проводятся летом и включают пение, танцы, жертвы для поддержания гармонии с природой.</p>
+                    </div>
+                    <div class="craft-card">
+                        <h4>Обряды инициации</h4>
+                        <p>Для молодых мужчин и женщин помогают интеграции в сообщество и передаче традиций.</p>
+                    </div>
+                    <div class="craft-card">
+                        <h4>Обрядовые куклы</h4>
+                        <p>Делают из шерсти, меха, кости и используют в ритуалах как символы духов.</p>
+                    </div>
+                    <div class="craft-card">
+                        <h4>Шаманизм</h4>
+                        <p>Шаманы имеют особые костюмы, маски и инструменты (бубны, бамбуковые трубы) для общения с духовным миром.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-section">
+                <h3>V. СОВРЕМЕННОЕ РЕМЁСЛЕННОЕ ИСКУССТВО И ЕГО РАЗВИТИЕ</h3>
+                
+                <div class="subchapter">
+                    <h4>Популяризация</h4>
+                    <p>Проводятся фестивали, такие как праздники оленеводов, этнографические дни ханты и манси. Молодёжь участвует в программах обучения и сохранения ремёсел.</p>
+                    <p>В туристических центрах продаются сувениры: меховые изделия, бисерные украшения, костюмы и аксессуары с национальными узорами.</p>
+                </div>
+
+                <div class="subchapter">
+                    <h4>Торговля и экспорт</h4>
+                    <p>Изделия пользуются спросом среди туристов и коллекционеров. Популярные товары: меховые шубы, бисерные украшения, резные деревянные предметы.</p>
+                    <p>Вся продукция сохраняет национальную символику, что способствует сохранению культуры.</p>
+                </div>
+            </div>
+
+            <div class="chapter-section">
+                <h2 class="chapter-title">VI. ЗНАЧЕНИЕ И СОХРАНЕНИЕ ТРАДИЦИЙ</h2>
+                <p>Важна задача сохранения языка, обрядов и ремёсел. Государственные программы финансируют ремесленные мастерские и культурные инициативы.</p>
+                <p>Развивается молодежное движение по обучению новым и традиционным ремёслам. Ведётся работа по созданию брендовых изделий для популяризации культуры и экономики коренных народов Ямала.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

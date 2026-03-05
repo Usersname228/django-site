@@ -1,0 +1,559 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Народы России - Интерактивная карта</title>
+    <link rel="icon" href="{% static 'images/Logo.jpg' %}" type="image/jpg">
+    <!-- Подключаем jQuery для анимации фона -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Подключаем внешний CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <canvas id="pixie"></canvas>
+
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Эхо Предков</div>
+        
+            <!-- Бургер-меню кнопка (справа) -->
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        
+            <!-- Навигационное меню -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#interactive-map" class="nav-link">Интерактивная карта</a></li>
+                <li><a href="#features" class="nav-link">Наши преимущества</a></li>
+                <li><a href="#master-classes" class="nav-link">Мастер-классы</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Добро пожаловать на сайт!</h1>
+            <p>Это не просто народы России!</p>
+            <a href="#interactive-map" class="cta-button">Интерактивная карта России</a>
+        
+            <!-- ===== ДОБАВЛЯЕМ СЧЕТЧИК ПРОСМОТРОВ (Вариант 1) ===== -->
+            <div class="view-counter">
+                <div class="view-counter-item">
+                    <span class="view-counter-icon">👁️</span>
+                    <div class="view-counter-info">
+                        <span class="view-counter-label">На этой странице</span>
+                        <span class="view-counter-number">{{ current_page_views }} <span>просмотров</span></span>
+                    </div>
+                </div>
+                <div class="view-counter-item">
+                    <span class="view-counter-icon">📊</span>
+                    <div class="view-counter-info">
+                        <span class="view-counter-label">Всего на сайте</span>
+                        <span class="view-counter-number">{{ total_site_views }} <span>просмотров</span></span>
+                    </div>
+                </div>
+                <div class="view-counter-item">
+                    <span class="view-counter-icon">📅</span>
+                    <div class="view-counter-info">
+                        <span class="view-counter-label">Сегодня</span>
+                        <span class="view-counter-number">{{ today_views }} <span>просмотров</span></span>
+                    </div>
+                </div>
+            </div>
+        <!-- ===== КОНЕЦ СЧЕТЧИКА ===== -->
+        
+        </div>
+    </section>
+
+    <div class="slider-container">
+        <div class="auto-play-indicator">
+            <div class="dot"></div>
+            Автопрокрутка
+        </div>
+
+        <div class="slider">
+            <!-- Слайд 1 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/2.png' %}" alt="Якуты">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Якуты</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 2 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/3.png' %}" alt="Долганы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Долганы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 3 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/4.jpg' %}" alt="Хакасы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Хакасы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 4 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/5.jpg' %}" alt="Чулымцы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Чулымцы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 5 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/6.jpg' %}" alt="Нганасаны">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Нганасаны</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 6 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/7.jpg' %}" alt="Энцы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Энцы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 7 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/8.jpg' %}" alt="Ненцы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Ненцы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 8 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/9.jpg' %}" alt="Селькупы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Селькупы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 9 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/10.jpg' %}" alt="Эвенки">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Эвенки</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 10 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/11.jpg' %}" alt="Нанайцы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Нанайцы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 11 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/12.jpg' %}" alt="Эвены">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Эвены</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 12 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/13.jpg' %}" alt="Украинцы">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Украинцы</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+
+            <!-- Слайд 13 -->
+            <div class="slide">
+                <div class="slide-image">
+                    <img src="{% static 'images/Img-slider/14.jpg' %}" alt="Русские">
+                </div>
+                <div class="slide-content">
+                    <div class="slide-subtitle">Народ</div>
+                    <h2 class="slide-title">Русские</h2>
+                    <p class="slide-text">Исследуйте самые интересные народы России. От сибирков до южных народов. Все они по своему интересные и незабываемы, многие из них вымирают, но здесь они будут жить всегда</p>
+                    <a href="#russia-map" class="slide-button-a"><button class="slide-button">Узнать больше</button></a>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider-arrow prev">❮</button>
+        <button class="slider-arrow next">❯</button>
+
+        <div class="slider-controls">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </div>
+
+    <div class="stooped-info">
+        <h2 class="stooped-info-h2" id="interactive-map"><strong>Открой для себя богатый мир народных промыслов России с нашей</strong> интерактивной картой!</h2>
+        <h3 class="stooped-info-h3">Кликайте на интересующие вас регионы, чтобы увидеть информацию о местных традиционных ремеслах, истории и мастерах.</h3>
+    </div>
+
+    <div class="map-old">
+        <section class="map-section" id="russia-map">
+            <div class="map-fallback">
+                <h3>Интерактивная карта недоступна на вашем устройстве</h3>
+                <p>Для просмотра интерактивной карты используйте устройство с большим экраном. На вашем устройстве доступен просмотр регионов в виде списка:</p>
+                <div class="region-cards" id="mobileRegionCards">
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="filter-btn active" onclick="filterByDistrict('all')">Все регионы</button>
+                <button class="filter-btn" onclick="filterByDistrict('Центральный')">Центральный ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Северо-Западный')">Северо-Западный ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Южный')">Южный ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Северо-Кавказский')">Северо-Кавказский ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Приволжский')">Приволжский ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Уральский')">Уральский ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Сибирский')">Сибирский ФО</button>
+                <button class="filter-btn" onclick="filterByDistrict('Дальневосточный')">Дальневосточный ФО</button>
+            </div>
+            
+            <div class="map-container">
+                <!-- Элементы управления масштабом -->
+                <div class="zoom-controls">
+                    <button class="zoom-btn" onclick="zoomIn()">+</button>
+                    <button class="zoom-btn" onclick="zoomOut()">−</button>
+                    <button class="reset-btn" onclick="resetZoom()">Сброс</button>
+                </div>
+                
+                <div class="loading" id="loading">
+                    Загрузка карты...
+                </div>
+                
+                <!-- Контейнер для карты с поддержкой зума и панорамирования -->
+                <div id="mapZoomContainer">
+                    <div id="mapPanContainer">
+                        <svg id="russiaMap" style="display: none;"></svg>
+                    </div>
+                </div>
+                
+                <div class="info-panel" id="infoPanel">
+                    <h3 id="regionName">Выберите регион</h3>
+                    <div class="info-item">
+                        <span class="info-label">Столица:</span>
+                        <span class="info-value" id="regionCapital">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Население:</span>
+                        <span class="info-value" id="regionPopulation">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Площадь:</span>
+                        <span class="info-value" id="regionArea">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Федеральный округ:</span>
+                        <span class="info-value" id="regionDistrict">-</span>
+                    </div>
+                    <div class="district-badge" id="districtBadge"></div>
+                    <div class="region-description" id="regionDescription"></div>
+                </div>
+            </div>
+
+            <div class="region-cards" id="regionList">
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">ключевых регионов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">федеральных округов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">≈65 млн</div>
+                    <div class="stat-label">общее население</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">≈9.2 млн км²</div>
+                    <div class="stat-label">общая площадь</div>
+                </div>
+            </div>
+        </section>
+    </div>
+        
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Зачем мы это делаем?</h2>
+                    <p>Мы — цифровой мост между вековыми традициями и современным миром.</p>
+                    <p>Мы используем передовые технологии, чтобы сохранить, актуализировать и сделать доступным уникальное наследие народов России для каждого.</p>
+                </div>
+                <div class="about-image">
+                    <video width="611" height="390" controls autoplay muted class="video-css">
+                        <source src="{% static 'video/lesson.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container-features">
+            <div class="section-title">
+                <h2>Наши преимущества</h2>
+                <p>О чем наш сайт?</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Народы</h3>
+                    <p>Мы покажем вам, какие малочисленные народы нашей страны проживают на территории России</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Идеи</h3>
+                    <p>Мало кто задумывается что у нас в стране живут вымирающие народы</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>История</h3>
+                    <p>Мы хотим, чтобы эти народы все помнили и знали об их существовании</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="master-classes">
+        <div class="container-features">
+            <div class="section-title">
+                <h2>Мастер-классы от народов России</h2>
+                <p>Прикоснитесь к живой культуре через ремёсла, обряды и искусство</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Мастер-классы народов России: ожившие традиции предков</h3>
+                    <p>Хотите не просто посмотреть, а сделать? На наших мастер-классах вы прикоснетесь к ремеслу по-настоящему.</p>
+                    <p>Расскажем, что означают старые узоры и почему посуда была такой формы. Приходите творить тепло!</p>
+                    <a href="/about" class="card-link" target="_blank">Перейти к курсам →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция контактов -->
+    <section class="contacts-section" id="contacts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Свяжитесь с нами</h2>
+                <p>Мы всегда рады ответить на ваши вопросы</p>
+            </div>
+            
+            <div class="contacts-grid">
+                <!-- Контактная информация -->
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <a href="tel:+79163208939">8 (916) 320 89 39</a>
+                            <p>Звоните нам</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:tsharafullin@yandex.ru">tsharafullin@yandex.ru</a>
+                            <p>Ответим в течение 24 часов</p>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Адрес</h4>
+                            <p>г. Москва, ул. Тверская, д. 7</p>
+                            <p>Офис 405, Культурный центр</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h4>Режим работы</h4>
+                            <p>Пн-Пт: 10:00 - 19:00</p>
+                            <p>Сб-Вс: по предварительной записи</p>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- Форма обратной связи -->
+                <div class="contact-form">
+                    <h3>Напишите нам</h3>
+                    <form id="contactForm" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Ваш Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Отправить сообщение</button>
+                    </form>
+                    <div id="formSuccess" class="form-success" style="display: none;">
+                        Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Социальные, сети нужно добавить! -->
+    <section class="social-section">
+        <div class="container">
+            <h3>Мы в социальных сетях</h3>
+            <div class="social-links">
+                <a href="/about" class="social-link" target="_blank">
+                    <span class="social-icon">📘</span>
+                    <span>ВКонтакте</span>
+                </a>
+                <a href="/about" class="social-link" target="_blank">
+                    <span class="social-icon">📷</span>
+                    <span>Instagram</span>
+                </a>
+                <a href="/about" class="social-link" target="_blank">
+                    <span class="social-icon">▶️</span>
+                    <span>YouTube</span>
+                </a>
+                <a href="/about" class="social-link" target="_blank">
+                    <span class="social-icon">📱</span>
+                    <span>Telegram</span>
+                </a>
+                <a href="/about" class="social-link" target="_blank">
+                    <span class="social-icon">🐦</span>
+                    <span>Twitter</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обновленный футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Эхо Предков</h4>
+                    <p>Сохранение культурного наследия народов России через современные технологии.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#interactive-map">Интерактивная карта</a></li>
+                        <li><a href="#features">Наши преимущества</a></li>
+                        <!-- <li><a href="#about">О нас</a></li> -->
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="footer-contact">
+                        <li>📞 8 (916) 320 89 39</li>
+                        <li>✉️ tsharafullin@yandex.ru</li>
+                        <!-- <li>📍 Москва, ул. Тверская, 7</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Эхо Предков - Карта народов России. Все права защищены.</p>
+                <p>Информация носит ознакомительный характер.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем внешний JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

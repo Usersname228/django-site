@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Народы Красноярского края</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #0077be;
+        }
+
+        .people-group {
+            margin-bottom: 50px;
+        }
+
+        .group-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .people-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #0077be;
+        }
+
+        .people-info {
+            flex: 1;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .people-stats {
+            color: #0077be;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .crafts-section {
+            margin-top: 25px;
+        }
+
+        .craft-title {
+            color: #005a8c;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #b3e0ff;
+        }
+
+        .craft-item {
+            margin-bottom: 20px;
+        }
+
+        .craft-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .craft-image {
+            width: 180px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #b3e0ff;
+            transition: transform 0.3s ease;
+        }
+
+        .craft-image:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .people-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .people-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Народы Красноярского края</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/i.webp" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <p><span class="highlight">Красноярский край</span> — это огромная территория, где в гармонии живут люди различных национальностей и народностей. Большая часть населения региона — потомки пришлых народов, переселенцы из европейской части России и бывших республик СССР: русские и украинцы, татары и чуваши, немцы, поляки, белорусы, армяне, киргизы и многие другие. Наряду с ними в крае живут и представители коренных народов, чья культура и традиции формировались веками.</p>
+            </div>
+
+            <div class="people-group">
+                <h2 class="group-title">Народы тюркской языковой группы</h2>
+
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://cs8.pikabu.ru/post_img/2017/10/24/4/og_og_1508818532236315314.jpg" alt="Якуты" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Якуты</h3>
+                            <p class="people-stats">В Красноярском крае: 1 236 человек | В России: 478 409 человек</p>
+                            <p>Большинство якутов края — мигранты из Якутии. Более 70 процентов красноярских якутов живут в Эвенкии. Занимаются оленеводством, охотой на дикого северного оленя и рыболовством. Особенности условий жизни, языка, удалённость от Якутии позволяют считать особой этнотерриториальной группой якутов.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4 class="craft-title">Народные промыслы</h4>
+                        
+                        <div class="craft-item">
+                            <h5>Дерево</h5>
+                            <p>Изготовление декоративной посуды и утвари из дерева (берёзы, лиственницы, сосны). Например:</p>
+                            <ul>
+                                <li><span class="highlight">Чороны</span> — сосуды в виде огромных бокалов, покрытые тонкой геометрической резьбой. Выделывались из дерева с помощью простейших инструментов, пропитывались животным жиром и сушили на открытом воздухе, благодаря чему приобретали коричневый или красновато-коричневый цвет.</li>
+                                <li><span class="highlight">Чаши (кытыйанар)</span> — выдалбливались из дерева берёзы или лиственницы при помощи особого инструмента.</li>
+                            </ul>
+                            <div class="craft-images">
+                                <img src="https://avatars.mds.yandex.net/i?id=45ad87ad07bce8f1ec74ff6e0de15ee8_l-5221486-images-thumbs&n=13" alt="Чороны" class="craft-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=29bca12e08c8ec8b30100109c1fc350a_l-9821502-images-thumbs&n=13" alt="Чаши" class="craft-image">
+                            </div>
+                        </div>
+
+                        <div class="craft-item">
+                            <h5>Береста</h5>
+                            <p>Изготовление изделий из бересты — верхнего слоя берёзовой коры. Например:</p>
+                            <ul>
+                                <li>Посуда для молока, масла, простокваши и других молочных продуктов, а также для воды, сбора и хранения ягод.</li>
+                                <li>Декоративные поделки: шкатулки для рукоделия, туески, табакерки, ящики для хранения чая.</li>
+                                <li>Украшение: изделия украшали резьбой, аппликацией, штамповкой, росписью, тиснением и выскабливанием.</li>
+                            </ul>
+                            <div class="craft-images">
+                                <img src="https://avatars.mds.yandex.net/i?id=b125e5625105e6e050db30a9284c5b7b_l-5276366-images-thumbs&n=13" alt="Берестяные изделия" class="craft-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=30f4bb00b47eb76796770fa788cddf60_l-5234668-images-thumbs&n=13" alt="Берестяная посуда" class="craft-image">
+                            </div>
+                        </div>
+
+                        <div class="craft-item">
+                            <h5>Кость</h5>
+                            <p>Художественная резьба по кости из бивня мамонта, который добывали на севере Якутии. Например:</p>
+                            <ul>
+                                <li>Шкатулки, ларцы-теремки, подчасники — использовали приёмы плоскорельефной и сквозной резьбы с выразительными силуэтами на ажурном сетчатом фоне.</li>
+                                <li>Нож наподобие кинжала или кортика с рукоятью и ножнами из мамонтовой кости — ножны и рукоятка обычно покрываются тонким растительным орнаментом, сюжетными изображениями (сцены охоты, фигурки оленей).</li>
+                            </ul>
+                            <div class="craft-images">
+                                <img src="https://avatars.mds.yandex.net/i?id=32962f45c532356dda8c4763f6096717_l-5352483-images-thumbs&n=13" alt="Резьба по кости" class="craft-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=b9386e313ed2afe88581c93c8279029a_l-4719838-images-thumbs&n=13" alt="Костяные изделия" class="craft-image">
+                            </div>
+                        </div>
+
+                        <div class="craft-item">
+                            <h5>Металл</h5>
+                            <p>Ювелирное дело — работа с серебром и золотом. Например:</p>
+                            <ul>
+                                <li>Сложный комплекс женских ювелирных украшений: большие серьги с подвесками, широкие пластинчатые браслеты, массивное нагрудное украшение с гривной, пояс, покрытый наборными серебряными пластинами.</li>
+                                <li>Выемчатой эмалью (куех солотуу) обычно украшали небольшие изделия: серьги, женские кресты.</li>
+                            </ul>
+                            <div class="craft-images">
+                                <img src="https://avatars.mds.yandex.net/i?id=bad3ad0dad8398d70d222e8d1da5312a_l-5288753-images-thumbs&n"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+    <footer>
+        <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+    </footer>
+</body>

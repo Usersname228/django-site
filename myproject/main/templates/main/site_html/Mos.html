@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История Московской области</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #0077be;
+        }
+
+        .people-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .people-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .people-info {
+            flex: 1;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .people-description {
+            color: #003366;
+            font-size: 1.1em;
+        }
+
+        .activities-section {
+            margin-top: 25px;
+        }
+
+        .activity-title {
+            color: #005a8c;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #b3e0ff;
+        }
+
+        .activity-item {
+            margin-bottom: 20px;
+        }
+
+        .activity-item h4 {
+            color: #0077be;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .activity-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .activity-image {
+            width: 180px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #b3e0ff;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-image:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .craft-item {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #b3e0ff;
+        }
+
+        .craft-item:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .craft-item h5 {
+            color: #005a8c;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .conclusion-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .conclusion-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .people-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .people-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .crafts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>История Московской области</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/Moskv.png" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <p>До прихода славян земли современной Московской области и всего центрального региона России населяли <span class="highlight">финно-угорские племена</span>, в частности, меря (в междуречье Оки и Волги) и мещера (к юго-востоку, в Рязанско-Владимирском пограничье). Их культура, быт и хозяйственный уклад были идеально приспособлены к жизни в лесах и по берегам рек.</p>
+            </div>
+
+            <!-- Финно-угорские племена -->
+            <div class="people-section">
+                <h2 class="section-title">Финно-угорские племена</h2>
+                
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="Img/26.webp" alt="Финно-угорские племена" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Меря и Мещера</h3>
+                            <p class="people-description">Коренные народы центральной России, населявшие земли будущего Подмосковья до прихода славян. Их культура была тесно связана с природой и идеально приспособлена к жизни в лесах и речных долинах.</p>
+                        </div>
+                    </div>
+
+                    <div class="activities-section">
+                        <h3 class="activity-title">Основные занятия: Хозяйственный уклад</h3>
+                        <p>Жизнь этих племен была тесно связана с природой, что и определяло их основные занятия.</p>
+                        
+                        <div class="activity-item">
+                            <h4>Земледелие и Скотоводство</h4>
+                            <p>Земледелие было подсечно-огневым. Мужчины вырубали и выжигали участок леса, а зола служила удобрением. На таких полях сеяли <span class="highlight">рожь, ячмень, овес, полбу и пшеницу</span>.</p>
+                            <p>Скотоводство играло важную роль. Разводили лошадей, коров, овец, коз и свиней. Лошадь была не только рабочим, но и культовым животным. Помимо мяса, получали молоко, шерсть и шкуры.</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Охота, Рыболовство и Собирательство</h4>
+                            <p>Охота была источником пропитания и ценных товаров. В лесах добывали пушного зверя: <span class="highlight">куницу, бобра, лисицу, белку</span>. Меха были главным продуктом для обмена (торговали с Волжской Булгарией и славянами). Охотились также на лося, оленя и кабана.</p>
+                            <p>Рыболовство было крайне важным из-за обилия рек и озер. Ловили щуку, судака, сома, осетра и другую рыбу, используя сети, гарпуны и удочки.</p>
+                            <p>Собирательство дополняло рацион: собирали грибы, ягоды (бруснику, клюкву), орехи и дикий мед.</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Ремесла</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-item">
+                                    <h5>Кузнечное дело</h5>
+                                    <p>Меря и мещера славились как искусные металлурги. Они добывали болотную руду и выплавляли железо, изготавливая орудия труда (ножи, серпы, топоры) и оружие (наконечники стрел и копий).</p>
+                                </div>
+                                <div class="craft-item">
+                                    <h5>Ювелирное дело</h5>
+                                    <p>Владели техникой литья, создавая из бронзы и меди украшения с характерным "звериным стилем" — шумящие подвески, поясные бляшки, гривны.</p>
+                                </div>
+                                <div class="craft-item">
+                                    <h5>Керамика</h5>
+                                    <p>Лепили от руки горшки, украшая их "текстильными" отпечатками (следами от плетеной лопаточки, обмотанной нитками).</p>
+                                </div>
+                                <div class="craft-item">
+                                    <h5>Обработка кости и дерева</h5>
+                                    <p>Изготавливали всё необходимое для быта — посуду, инструменты, детали луков, украшения для жилищ.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activities-section">
+                        <h3 class="activity-title">Питание: Что ели меря и мещера?</h3>
+                        <ul>
+                            <li><span class="highlight">Основа рациона</span>: Каши (ячменные, овсяные), рыба (варенная, вяленая), мясо домашних животных и дичи.</li>
+                            <li><span class="highlight">Главный овощ</span>: Репа (её парили, варили, пекли).</li>
+                            <li><span class="highlight">Дополнение</span>: Молочные продукты, грибы, ягоды, орехи, дикий мед.</li>
+                            <li><span class="highlight">Напитки</span>: Хмельные медовые напитки и квас.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="activities-section">
+                        <h3 class="activity-title">Быт и Поселения</h3>
+                        <ul>
+                            <li><span class="highlight">Поселения (селища)</span> располагались по берегам рек и озер. Жилищами служили бревенчатые срубные дома или полуземлянки с очагом в центре.</li>
+                            <li><span class="highlight">Одежда</span> была из льна, шерсти и кожи. Женский костюм отличался обилием металлических украшений, которые были не только красотой, но и оберегами.</li>
+                            <li><span class="highlight">Верования</span> были языческими. Они обожествляли силы природы, почитали духов леса, воды и дома. Важную роль играли шаманы.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Славяне -->
+            <div class="people-section">
+                <h2 class="section-title">Славяне (Вятичи, Кривичи)</h2>
+                
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="Img/27.webp" alt="Славянские племена" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Вятичи и Кривичи</h3>
+                            <p class="people-description">Славяне (в основном племена вятичей и кривичей) начали проникать на земли современного Подмосковья в VIII-IX веках. Они приходили с запада и юго-запада, расселяясь по долинам рек — Москвы-реки, Клязьмы, Оки. Это была не завоевательная война, а постепенная мирная колонизация. Славяне селились рядом с финно-угорскими племенами (меря, мещера), что в итоге привело к их ассимиляции.</p>
+                        </div>
+                    </div>
+
+                    <div class="activities-section">
+                        <h3 class="activity-title">Быт и основные занятия</h3>
+                        
+                        <div class="activity-item">
+                            <h4>Земледелие</h4>
+                            <p>Было основой хозяйства. В отличие от подсечно-огневой системы аборигенов, славяне активно переходили на <span class="highlight">двуполье и трёхполье</span>, что было эффективнее. Выращивали рожь, пшеницу, ячмень, овес.</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Скотоводство</h4>
+                            <p>Разводили тех же животных, что и финно-угры: коров, овец, коз, свиней и лошадей.</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Ремесла</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-item">
+                                    <h5>Кузнечное дело</h5>
+                                    <p>Изготавливали орудия труда (лемехи, косы, топоры) и оружие (мечи, наконечники копий).</p>
+                                </div>
+                                <div class="craft-item">
+                                    <h5>Гончарное дело</h5>
+                                    <p>Широко использовали гончарный круг, в отличие от местных племен. Это позволяло массово производить симметричную и прочную посуду.</p>
+                                </div>
+                                <div class="craft-item">
+                                    <h5>Прядение и ткачество</h5>
+                                    <p>Выращивали лен и коноплю для производства тканей.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Торговля</h4>
+                            <p>Была важным занятием. Через земли будущего Подмосковья проходили ключевые речные пути (<span class="highlight">«из варяг в греки», волжский путь</span>). Славяне активно торговали хлебом, мехами, медом и воском.</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <h4>Быт</h4>
+                            <p>Жили в срубных избах, собранных из бревен. Поселения часто укрепляли валами и частоколами, превращая в городища. Носили рубахи, порты и сарафаны из домотканого полотна, украшенные вышивкой.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Заключение -->
+            <div class="conclusion-section">
+                <h3>Заключение</h3>
+                <p>Историческое развитие Московской области стало результатом многовекового взаимодействия и синтеза разных культур.</p>
+                <ul>
+                    <li><span class="highlight">Финно-угорские племена (меря, мещера)</span> были автохтонным, то есть коренным, населением этого региона. Их хозяйственный уклад, идеально приспособленный к жизни в лесах и речных долинах, заложил первоначальную основу для освоения этих земель. Они были искусными охотниками, рыболовами и металлургами.</li>
+                    <li><span class="highlight">Славяне (вятичи, кривичи)</span>, начавшие массово проникать сюда в VIII-IX веках, принесли с собой более развитое пашенное земледелие, гончарный круг и новые формы социальной организации. Их расселение носило в целом мирный, колонизационный характер.</li>
+                </ul>
+                <p>В результате не завоевания, а постепенной ассимиляции и культурного обмена, к XI-XII векам сформировалось новое население, в котором слились обе традиции. Наследие финно-угров сохранилось в географических названиях (реки Яхрома, Клязьма), археологических находках и некоторых элементах материальной культуры, а славянский компонент определил язык, социальное устройство и дальнейший исторический путь этого региона, ставшего ядром современной России.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

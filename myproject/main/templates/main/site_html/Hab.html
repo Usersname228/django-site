@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коренные народы Хабаровского края</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border-left: 5px solid #0077be;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #0077be;
+            margin: 10px 0;
+        }
+
+        .stat-description {
+            color: #005a8c;
+            font-size: 1.1em;
+        }
+
+        .peoples-section {
+            margin-bottom: 50px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            border: 2px solid #b3e0ff;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .people-info {
+            flex: 1;
+        }
+
+        .people-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #0077be;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .people-stats {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .people-details {
+            margin-top: 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .detail-item h4 {
+            color: #0077be;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .ethnic-map {
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .ethnic-map h3 {
+            color: #005a8c;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #b3e0ff, #e6f7ff);
+            border: 2px dashed #0077be;
+            border-radius: 8px;
+            padding: 60px 20px;
+            margin: 15px 0;
+            color: #005a8c;
+            font-style: italic;
+        }
+
+        .traditional-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .traditional-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .people-header {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Коренные народы Хабаровского края</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/habar.png" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <h2 class="section-title">Демографическая ситуация</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">22 861</div>
+                        <p class="stat-description">человек составляют коренные малочисленные народы Севера</p>
+                        <p>1,7% от общего населения Хабаровского края</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <p class="stat-description">этносов для которых Хабаровский край является исторической территорией</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">98,6%</div>
+                        <p class="stat-description">коренных народов проживает на исторической территории</p>
+                        <p>22 549 человек от общего числа</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flag-section">
+                <img src="Img/XAB.jpg" alt="Флаг Республики Саха (Якутия)">
+            </div>
+
+            <div class="peoples-section">
+                <h2 class="section-title">Коренные народы Хабаровского края</h2>
+
+                <!-- Нанайцы -->
+                
+                <div class="people-card">
+                    <img src="Img/4.jpg" alt="Якуты" class="people-image">
+                    <div class="people-header">
+                        <div class="people-info">
+                            <h3 class="people-name">Нанайцы</h3>
+                            <div class="people-stats">
+                                Численность в Хабаровском крае: 11 009 человек (2010)
+                            </div>
+                            <p>Нанайцы (устаревшее самоназвание – гольды) – народ тунгусоманьчжурской языковой группы. Самоназвание — нанай, нани (от на — "земля", най — "человек") — "люди этой земли".</p>
+                        </div>
+                    </div>
+
+                    <div class="people-details">
+                        <h4>Территория проживания</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Хабаровский край</h4>
+                                <p>Амурский, Нанайский, Комсомольский, Солнечный, Хабаровский районы, города Хабаровск и Комсомольск-на-Амуре</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Другие регионы</h4>
+                                <p>Приморский край, Сахалинская область, провинция Хэйлунцзян Китайской Народной Республики (народ хэджэ)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Негидальцы -->
+                
+                <div class="people-card">
+                    <img src="Img/5.jpg" alt="Якуты" class="people-image">
+                    <div class="people-header">
+                        <div class="people-info">
+                            <h3 class="people-name">Негидальцы</h3>
+                            <div class="people-stats">
+                                Численность: 480 человек (2010)
+                            </div>
+                            <p>Негидальцы (самоназвание – "илкэн бэй" либо "амгунь бэенгин") – народ тунгусо-манчжурской языковой группы. В 17 веке негидальцы были известны как амгуньские тунгусы.</p>
+                        </div>
+                    </div>
+
+                    <div class="people-details">
+                        <h4>Территория проживания</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Исторические территории</h4>
+                                <p>Низовья реки Амгунь и на Амуре в нескольких километрах от устья Амгуни</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Современное расселение</h4>
+                                <p>Села Белоглинка, Тыр, Кальма и Богородское Ульчского района, село Владимировка, район имени Полины Осипенко</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Нивхи -->
+                
+                <div class="people-card">
+                    <img src="Img/6.jpg" alt="Якуты" class="people-image">
+                    <div class="people-header">
+                        <div class="people-info">
+                            <h3 class="people-name">Нивхи</h3>
+                            <div class="people-stats">
+                                Численность в Хабаровском крае: 2 149 человек (2010)
+                            </div>
+                            <p>Нивхи ("нивхгу", "нивух", "нивах") – народ палеоазиатской группы в низовьях Амура и на Сахалине. Соседние народы называли их гиляха, гилэми, гилэкэ.</p>
+                        </div>
+                    </div>
+
+                    <div class="people-details">
+                        <h4>Территория проживания</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Хабаровский край</h4>
+                                <p>Николаевский и Ульчский районы</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Другие регионы</h4>
+                                <p>Сахалинская область</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">Традиционные занятия</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Рыболовство</h4>
+                                <p>Промысел проходных лососей, изготовление юколы. Использование закидных неводов и заездок на нерестовых речках</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Морской промысел</h4>
+                                <p>Зверобойный промысел морских животных</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Охота и собирательство</h4>
+                                <p>Сухопутная охота и собирательство имели подсобное значение</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Удэгейцы -->
+                
+                <div class="people-card">
+                    <img src="Img/7.jpg" alt="Якуты" class="people-image">
+                    <div class="people-header">
+                        <div class="people-info">
+                            <h3 class="people-name">Удэгейцы</h3>
+                            <div class="people-stats">
+                                Численность в Хабаровском крае: 620 человек (2010)
+                            </div>
+                            <p>Удэгейцы (удихэ, удэгэ) - один из народов тунгусо-манчжурской языковой группы. Проживают в Хабаровском и Приморском краях.</p>
+                        </div>
+                    </div>
+
+                    <div class="people-details">
+                        <h4>Территория проживания в Хабаровском крае</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Нанайский район</h4>
+                                <p>Традиционные территории расселения</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Район имени Лазо</h4>
+                                <p>Современные места проживания</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">Традиционные занятия и культура</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h4>Охота</h4>
+                                <p>Круглогодичная охота в верховьях рек. Добыча лося, изюбра, кабана, пятнистого оленя, кабарги</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Рыболовство</h4>
+                                <p>Традиционный промысел рыбы</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Декоративное искусство</h4>
+                                <p>Геометрический и растительный орнаменты, вышивки и аппликации на одежде</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Украшения</h4>
+                                <p>Металлические подвески и раковинки в женской одежде</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="traditional-section">
+                <h3>Другие коренные народы Хабаровского края</h3>
+                <p>Помимо представленных народов, в Хабаровском крае также проживают:</p>
+                
+                <div class="details-grid" style="margin-top: 20px;">
+                    <div class="detail-item">
+                        <h4>Орочи</h4>
+                        <p>Народ тунгусо-маньчжурской группы, традиционно проживающий в прибрежных районах</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Ульчи</h4>
+                        <p>Коренной народ нижнего Амура, сохраняющий традиции рыболовства и охоты</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Эвенки</h4>
+                        <p>Традиционные оленеводы и охотники, расселенные на обширной территории</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Эвены</h4>
+                        <p>Народ тунгусо-маньчжурской группы, занимающиеся оленеводством</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;">Все эти народы сохраняют уникальные культурные традиции, язык и традиционный уклад жизни, составляя неотъемлемую часть культурного наследия Хабаровского края и всего Дальнего Востока России.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

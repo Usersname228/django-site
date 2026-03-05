@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Краснодарский край - культурное наследие народов Кубани</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%); /* Светло-голубой градиент */
+            color: #003366; /* Темно-синий текст */
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be; /* Синий */
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff; /* AliceBlue */
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%); /* Синий градиент */
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c; /* Темно-синий */
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff; /* Светло-синий */
+            padding-bottom: 10px;
+        }
+
+        .intro-card {
+            background: #f8fbff; /* Очень светлый синий */
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be; /* Синий */
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff; /* Очень светлый синий */
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff; /* Светло-синий */
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-name {
+            color: #005a8c; /* Темно-синий */
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .people-stats {
+            background: #e6f7ff; /* Очень светлый голубой */
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            color: #003366;
+        }
+
+        .people-details {
+            margin-top: 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            background: #e6f7ff; /* Очень светлый голубой */
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: #b3e0ff; /* Светло-синий */
+            transform: translateY(-3px);
+        }
+
+        .detail-item h4 {
+            color: #0077be; /* Синий */
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .crafts-section {
+            margin-top: 25px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .craft-card {
+            background: #e6f7ff; /* Очень светлый голубой */
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .craft-card:hover {
+            background: #b3e0ff; /* Светло-синий */
+            transform: translateY(-3px);
+        }
+
+        .craft-card h4 {
+            color: #005a8c; /* Темно-синий */
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .links-section {
+            background: #f8fbff; /* Очень светлый синий */
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c; /* Темно-синий */
+        }
+
+        .links-section h3 {
+            color: #005a8c; /* Темно-синий */
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #b3e0ff; /* Светло-синий */
+        }
+
+        .link-item a {
+            color: #0077be; /* Синий */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .link-item a:hover {
+            color: #005a8c; /* Темно-синий */
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%); /* Светло-синий */
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%); /* Темно-синий градиент */
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid,
+            .details-grid,
+            .crafts-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Краснодарский край</h1>
+            <p>Культурное наследие народов Кубани</p>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/krasnd.avif" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <div class="intro-card">
+                    <h2 class="section-title">Жемчужина России</h2>
+                    <p>Краснодарский край — это один из ключевых и самых динамично развивающихся регионов России. Часто его неофициально называют <span class="highlight">«Кубань»</span> — по названию главной реки, протекающей по его территории.</p>
+                    <p>Край расположен на юго-западе России, в западной части Большого Кавказа, и омывается с запада Азовским морем, с юго-запада — Чёрным морем. Это делает регион уникальным — он имеет выход сразу к двум морям.</p>
+                    <p>Климат варьируется от умеренно-континентального на севере до субтропического на Черноморском побережье, что делает край главным курортным регионом страны.</p>
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h2 class="section-title">Народы Краснодарского края</h2>
+                
+                <div class="peoples-grid">
+                    <!-- Русские -->
+                    <div class="people-card">
+                        <img src="Kransd/12.jpg" alt="Русские" class="people-image">
+                        <h3 class="people-name">Русские</h3>
+                        <div class="people-stats">
+                            <p>Численность: более 5 млн человек</p>
+                            <p>Основной этнос края - около 88% населения</p>
+                        </div>
+                        <p>Русские составляют абсолютное большинство населения Краснодарского края. Их расселение равномерно по всей территории, с максимальной концентрацией в крупных городах и станицах.</p>
+                        
+                        <div class="people-details">
+                            <h4>Основные места проживания</h4>
+                            <p>Краснодар, Сочи, Новороссийск, Армавир, Ейск, а также многочисленные станицы и сельские поселения</p>
+                            
+                            <h4>Традиционные занятия</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Земледелие</h4>
+                                    <p>Выращивание пшеницы, ячменя, кукурузы, риса - Кубань называют "житницей России"</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Садоводство и виноградарство</h4>
+                                    <p>Выращивание фруктов, ягод и винограда для производства вина</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Животноводство</h4>
+                                    <p>Разведение КРС, свиноводство и птицеводство</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Традиционные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Гончарное дело</h4>
+                                    <p>Изготовление традиционной посуды в станицах Гончарка и Старокорсунская</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Плетение из лозы</h4>
+                                    <p>Создание корзин, мебели и других изделий из ивовой лозы</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Плетение из чакана</h4>
+                                    <p>Изготовление кубанских тырс (циновок) из болотного растения рогоз</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Кузнечное дело</h4>
+                                    <p>Традиционная обработка металла в казачьих станицах</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Армяне -->
+                    <div class="people-card">
+                        <img src="Kransd/1.webp" alt="Армяне" class="people-image">
+                        <h3 class="people-name">Армяне</h3>
+                        <div class="people-stats">
+                            <p>Численность: около 210 000 человек</p>
+                            <p>Вторая по численности этническая группа в крае</p>
+                        </div>
+                        <p>Армяне являются одной из самых крупных и исторически укорененных диаспор в Краснодарском крае, вносящей значительный вклад в экономику и культуру региона.</p>
+                        
+                        <div class="people-details">
+                            <h4>Основные места проживания</h4>
+                            <p>Сочи (особенно Адлерский и Лазаревский районы), Краснодар, Армавир, Новороссийск, Туапсе, Анапа</p>
+                            
+                            <h4>Основные сферы деятельности</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Торговля и бизнес</h4>
+                                    <p>Розничная и оптовая торговля, общественное питание</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Строительство</h4>
+                                    <p>Девелоперские компании и строительные бригады</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Сельское хозяйство</h4>
+                                    <p>Выращивание овощей, фруктов, виноградарство</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Традиционные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Виноделие</h4>
+                                    <p>Особенно развито в Анапском районе (сёла Сукко, Варваровка, Гай-Кодзор)</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Гончарное дело</h4>
+                                    <p>Традиционная керамика с армянскими орнаментами</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Ювелирное искусство</h4>
+                                    <p>Обработка серебра и создание украшений</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Ковроткачество</h4>
+                                    <p>Сохранение традиций создания армянских ковров</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Адыгейцы -->
+                    <div class="people-card">
+                        <img src="Kransd/2.webp" alt="Адыгейцы" class="people-image">
+                        <h3 class="people-name">Адыгейцы</h3>
+                        <div class="people-stats">
+                            <p>Численность в крае: несколько тысяч человек</p>
+                            <p>Коренной народ Северо-Западного Кавказа</p>
+                        </div>
+                        <p>Адыгейцы (черкесы) - коренное население региона с богатой историей и культурой. Основная часть проживает в Республике Адыгея, но исторические общины сохранились и в Краснодарском крае.</p>
+                        
+                        <div class="people-details">
+                            <h4>Основные места проживания</h4>
+                            <p>Лазаревский район Сочи (сёла Большой Кичмай, Малый Кичмай), Мостовской район, аулы в Туапсинском районе</p>
+                            
+                            <h4>Традиционные занятия</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Земледелие</h4>
+                                    <p>Выращивание проса, ячменя, пшеницы, овощей</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Садоводство</h4>
+                                    <p>Выращивание фруктов, орехов, винограда</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Животноводство</h4>
+                                    <p>Коневодство, разведение КРС, овец и коз</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Традиционные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Оружейное дело</h4>
+                                    <p>Изготовление знаменитых черкесских шашек и кинжалов</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Золотошвейное искусство</h4>
+                                    <p>Уникальная вышивка золотыми и серебряными нитями</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Ювелирное дело</h4>
+                                    <p>Создание украшений с чернью и позолотой</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Бортничество</h4>
+                                    <p>Традиционное пчеловодство - один из древнейших промыслов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Шапсуги -->
+                    <div class="people-card">
+                        <img src="Kransd/3.webp" alt="Шапсуги" class="people-image">
+                        <h3 class="people-name">Шапсуги</h3>
+                        <div class="people-stats">
+                            <p>Численность: 10 000 - 15 000 человек</p>
+                            <p>Коренной малочисленный народ России, субэтнос адыгов</p>
+                        </div>
+                        <p>Шапсуги - одна из субэтнических групп адыгского народа, компактно проживающая в исторической области Малая Шапсугия на Черноморском побережье Кавказа.</p>
+                        
+                        <div class="people-details">
+                            <h4>Основные места проживания</h4>
+                            <p>Лазаревский район Сочи: сёла Большой Кичмай, Малый Кичмай, Калеж, Лыготх, Наджиго и другие</p>
+                            
+                            <h4>Современные занятия</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Туризм</h4>
+                                    <p>Развитие этнотуризма и сельского туризма</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Сельское хозяйство</h4>
+                                    <p>Традиционное земледелие и животноводство</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Ремесла</h4>
+                                    <p>Сохранение и развитие традиционных промыслов</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Традиционные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Металлообработка</h4>
+                                    <p>Изготовление и украшение холодного оружия</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Ювелирное искусство</h4>
+                                    <p>Создание украшений из серебра с чернью</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Ткачество</h4>
+                                    <p>Изготовление традиционной одежды и предметов быта</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Изготовление бурок</h4>
+                                    <p>Традиционное войлочное ремесло</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <div class="intro-card">
+                    <h2 class="section-title">Экономика и значение региона</h2>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <h4>Агропромышленный комплекс</h4>
+                            <p>Краснодарский край - "житница России", лидер по производству зерна, сахарной свёклы, подсолнечника, винограда и чая</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Курортно-туристическая отрасль</h4>
+                            <p>Крупнейший курортный регион России с мировыми курортами: Сочи, Анапа, Геленджик, Туапсе</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Транспорт и логистика</h4>
+                            <p>Стратегическое значение благодаря портам Чёрного и Азовского морей, включая крупнейший порт России - Новороссийск</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Промышленность</h4>
+                            <p>Развиты пищевая переработка, топливно-энергетический комплекс, машиностроение и производство строительных материалов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="links-section">
+                <h3>Дополнительная информация о Краснодарском крае</h3>
+                <div class="links-grid">
+                    <div class="link-item">
+                        <p><strong>Столица:</strong> Краснодар</p>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Площадь:</strong> ~75,5 тыс. км²</p>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Население:</strong> Около 5,7 млн человек</p>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Федеральный округ:</strong> Южный</p>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Дата образования:</strong> 13 сентября 1937 года</p>
+                    </div>
+                    <div class="link-item">
+                        <p><strong>Плотность населения:</strong> ~102,2 чел./км²</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

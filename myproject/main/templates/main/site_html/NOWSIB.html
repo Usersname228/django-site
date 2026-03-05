@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Народы Новосибирска - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #0077be;
+        }
+
+        .info-card h3 {
+            color: #005a8c;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .map-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #b3e0ff;
+        }
+
+        .population-card {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .population-card h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .population-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #0077be;
+            margin: 10px 0;
+        }
+
+        .peoples-section {
+            margin-bottom: 50px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            border: 2px solid #b3e0ff;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .people-image {
+            width: 200px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .people-info {
+            flex: 1;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .crafts-section {
+            margin-top: 25px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .craft-item {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #b3e0ff;
+        }
+
+        .craft-item:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .craft-item h5 {
+            color: #005a8c;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .traditions-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .traditions-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .traditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tradition-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tradition-item:hover {
+            transform: scale(1.05);
+        }
+
+        .tradition-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #b3e0ff;
+        }
+
+        .modern-section {
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #0077be;
+        }
+
+        .modern-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .people-header {
+                flex-direction: column;
+            }
+            
+            .people-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .traditions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Народы Новосибирска</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <h2 class="section-title">Расположение и население</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Географическое положение</h3>
+                        <p>Новосибирск — третий по численности населения город России, крупнейший город её азиатской части. Административный центр Новосибирской области и Новосибирского района (в состав последнего не входит).</p>
+                        <p>Расположен в юго-восточной части Западно-Сибирской равнины, на обоих берегах реки Обь, на пересечении лесной и лесостепной природных зон.</p>
+                        <p><strong>Географические координаты:</strong> 55°01′ северной широты, 82°55′ восточной долготы.</p>
+                        <p>К городу примыкают Заельцовский и Кудряшовский боры, Новосибирское водохранилище, образованное плотиной Новосибирской ГЭС.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Карта региона</h3>
+                        <img src="https://studfile.net/html/2706/471/html_gvdQFFmtHE.FRQc/img-FDNrj5.png" alt="Карта Новосибирской области" class="map-image">
+                    </div>
+                </div>
+                
+                <div class="population-card">
+                    <h3>Численность населения Новосибирска</h3>
+                    <div class="population-number">1 637 266 человек</div>
+                    <p>По данным на 1 января 2025 года</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Быт и культура</h3>
+                    <p>Традиционный быт новосибирцев формировался под влиянием климатических условий Сибири и исторических особенностей развития региона. Основные элементы быта включают:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li><strong>Хозяйственно-культурный тип:</strong> Оборона поселений и ведение хозяйства адаптированы к суровым зимним условиям и коротким теплым сезонам.</li>
+                        <li><strong>Поселение и жилище:</strong> Традиционные дома строились из дерева, имели печи для отопления и приготовления пищи. Современные жилища представляют собой многоквартирные здания и частные коттеджи.</li>
+                        <li><strong>Материальная культура:</strong> Национальные костюмы, украшения и предметы домашнего обихода отражают богатство культурных традиций разных народов.</li>
+                        <li><strong>Семейно-родовые отношения:</strong> Семьи традиционно были большими и крепкими, поддерживались тесные связи между родственниками.</li>
+                        <li><strong>Социальная организация:</strong> Социальная структура включала старейшин, уважаемых членов общины и общинные советы.</li>
+                        <li><strong>Духовная жизнь:</strong> Религиозные верования и обычаи играли важную роль в повседневной жизни, включая праздники, ритуалы и обряды.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="peoples-section">
+                <h2 class="section-title">Народы Новосибирска</h2>
+                
+                <!-- Русские -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://avatars.mds.yandex.net/i?id=c88603d9b82e6c731ff59837a6db257698012502-4568174-images-thumbs&n=13" alt="Русские Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Русские</h3>
+                            <p>Русские составляют большинство населения Новосибирска, корни которого уходят в эпоху освоения Сибири и строительства Транссибирской магистрали.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>Преобладает городская среда, квартиры и многоэтажные жилые комплексы. Однако некоторые жители проживают в частных домах, сохраняющих элементы традиционной архитектуры, такие как деревянные постройки с двускатными крышами.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Большинство занято в промышленности, торговле, сфере услуг и науке. Подсобное земледелие, садоводство и огородничество распространены среди сельских районов и дачных участков.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Православной церкви принадлежит ведущая роль в духовной жизни русских. Традиционные православные праздники, такие как Рождество, Пасха и Троица, активно отмечаются жителями.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Татары -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://avatars.mds.yandex.net/i?id=76ac1c3da0c1154c9621e6fe4e57ab02_l-4077654-images-thumbs&n=13" alt="Татары Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Татары</h3>
+                            <p>Татарская диаспора имеет глубокие исторические корни в регионе, начиная с эпохи Золотой Орды.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>Обычно живут компактно, особенно в сельской местности, образуя татарские деревни или кварталы городов.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Многие заняты в сельском хозяйстве, животноводстве и растениеводстве. Ремесленные профессии, такие как кузнечное дело и обработка кожи, имеют важное значение.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Ислам играет центральную роль в культуре и образе жизни татар. Мусульманские религиозные праздники, такие как Курбан-Байрам и Ураза-Байрам, важны для татарской общины.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Украинцы -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://goru.travel/storage/app/uploads/public/5e6/747/5e7/5e67475e7bfe3021149273.jpg" alt="Украинцы Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Украинцы</h3>
+                            <p>Иммиграция украинцев началась в XVIII веке и продолжалась вплоть до XX века, особенно во времена коллективизации и индустриализации.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>Живут преимущественно в городах и крупных населенных пунктах, сохраняя свою национальную идентичность через язык и культуру.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Часто работают в промышленности, строительстве и торговле. Садоводство и домашнее производство продовольствия характерны для многих украинских семей.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Православие, украинское музыкальное наследие и традиционные кулинарные предпочтения играют значительную роль в украинской культуре.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Немцы -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://avatars.mds.yandex.net/i?id=4fa5a79a88f092de8ee43f4048e1ac07_l-5344211-images-thumbs&n=13" alt="Немцы Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Немцы</h3>
+                            <p>Немецкая диаспора возникла в Сибири благодаря переселению немецких колонистов в Россию в XVIII-XIX веках.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>В прошлом жили в специальных немецких деревнях, но теперь большая часть проживает в городских районах.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Отличаются высоким уровнем образования и квалификации. Многие заняты в сферах сельского хозяйства, торговли и науки.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Протестантизм распространен среди немецкой общины. Немецкий язык, музыкальные традиции и гастрономия продолжают играть значимую роль в жизни немцев.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Чаты (Чачи) -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://novosibirsk.myhistorypark.ru/assets/images/media/horovod/dsc-3744.jpg" alt="Чаты Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Чаты (Чачи)</h3>
+                            <p>Чаты — небольшая группа южносибирских татар, проживающая в основном в Алтайском крае и Новосибирской области. Их происхождение связано с древними кочевыми племенами Южной Сибири.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>Изначально вели полукочевой образ жизни, занимались скотоводством и охотились. Сегодня живут в основном оседло, в маленьких селениях, сохраняя традиционный уклад жизни.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Основное занятие — пастбищное скотоводство, разведение крупного рогатого скота, овец и коз. Охота и собирательство тоже важны для поддержания традиционного образа жизни.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Сохраняют древние шаманские традиции и языческие верования, несмотря на принятие ислама большинством представителей сообщества. Танцы, музыка и народные игры занимают особое место в общественной жизни.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Телеуты -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://static1-repo.aif.ru/1/f6/209891/c/bd98f84f9aab8080a6f71a67fd4fe6f9.jpg" alt="Телеуты Новосибирска" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Телеуты</h3>
+                            <p>Телеуты — одна из старейших народностей Западной Сибири, тесно связанная с историей Алтая и Минусинской котловины. Название "телеут" означает "живущие у воды".</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4>Традиционные ремёсла и культура</h4>
+                        <div class="crafts-grid">
+                            <div class="craft-item">
+                                <h5>Поселения и жилье</h5>
+                                <p>Первоначально жили в юртах и землянках, позднее перешли к строительству деревянных домов и изб. Сейчас живут в современных жилых помещениях, сохранив ряд элементов традиционной архитектуры.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Образ жизни и экономика</h5>
+                                <p>Занимались оленеводством, коневодством, охотой и рыболовством. Сегодня многие переходят к сельскохозяйственному производству и работе в городском секторе.</p>
+                            </div>
+                            <div class="craft-item">
+                                <h5>Культура и духовная жизнь</h5>
+                                <p>Древняя традиция поклонения природе, почитание предков и вера в духи животных сохранились в народной памяти. Шаманизм и родовая память продолжают оказывать сильное влияние на мировоззрение телеутов.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="traditions-section">
+                <h3>Сохранение традиций и ремёсел в XXI веке</h3>
+                <p>Несмотря на современные изменения, многие традиционные ремёсла сохранились благодаря усилиям местных мастеров и энтузиастов. Некоторые из них стали туристическими достопримечательностями, привлекающими внимание гостей региона.</p>
+                
+                <div class="traditions-grid">
+                    <div class="tradition-item">
+                        <img src="https://novosibirsk.myhistorypark.ru/assets/images/media/horovod/dsc-3744.jpg" alt="Народные праздники Новосибирска" class="tradition-image">
+                        <h4>Народные праздники</h4>
+                        <p>В Новосибирске регулярно проводятся мероприятия, где демонстрируются традиционные ремёсла разных народов региона.</p>
+                    </div>
+                    
+                    <div class="tradition-item">
+                        <img src="https://static.tildacdn.com/tild6262-3839-4734-a139-613637633062/WhatsApp_Image_2023-.jpeg" alt="Культурные центры" class="tradition-image">
+                        <h4>Культурные центры</h4>
+                        <p>В городе работают национальные культурные центры, где можно познакомиться с традициями разных народов.</p>
+                    </div>
+                    
+                    <div class="tradition-item">
+                        <img src="https://goru.travel/storage/app/uploads/public/5e6/747/5e7/5e67475e7bfe3021149273.jpg" alt="Этнографические музеи" class="tradition-image">
+                        <h4>Этнографические музеи</h4>
+                        <p>В Новосибирске существуют музеи, где представлены экспонаты, отражающие историю и культуру коренных народов.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-section">
+                <h3>Современное состояние культурных традиций</h3>
+                <p>Сегодня большое внимание уделяется сохранению и возрождению народных промыслов и традиций. Активно работают краеведческие музеи, школы народных ремёсел, организуются фольклорные ансамбли и праздничные мероприятия.</p>
+                
+                <p>Каждый год проходят крупные ярмарки и выставки, на которых представляют традиционные ремесленные изделия и демонстрируют самобытность каждой национальности. Например, знаменитые <span class="highlight">"Дни национальной культуры"</span> собирают тысячи участников и зрителей, предлагая программы с концертами, мастер-классами и дегустациями блюд национальной кухни.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="https://static.tildacdn.com/tild6262-3839-4734-a139-613637633062/WhatsApp_Image_2023-.jpeg" alt="Культурные мероприятия" style="max-width: 100%; border-radius: 8px; border: 2px solid #b3e0ff;">
+                    <p style="margin-top: 10px; font-style: italic;">Культурные мероприятия Новосибирска объединяют народы региона</p>
+                </div>
+                
+                <p style="margin-top: 20px;">Кроме того, особые меры принимаются правительством области для поддержки мастеров традиционных ремёсел и развития инфраструктуры туризма. Это способствует привлечению внимания к истории и культуре региона, созданию новых рабочих мест и увеличению привлекательности Новосибирска для путешествий.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

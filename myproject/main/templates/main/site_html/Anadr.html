@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анадырь - культурное наследие коренных народов Чукотки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .intro-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .people-stats {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .people-details {
+            margin-top: 20px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .detail-item h4 {
+            color: #0077be;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .crafts-section {
+            margin-top: 25px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .craft-card {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .craft-card:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .craft-card h4 {
+            color: #005a8c;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .links-section {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .links-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #b3e0ff;
+        }
+
+        .link-item a {
+            color: #0077be;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .link-item a:hover {
+            color: #005a8c;
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid,
+            .details-grid,
+            .crafts-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Анадырь</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/chukot.webp" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-section">
+                <div class="intro-card">
+                    <h2 class="section-title">Столица Чукотского автономного округа</h2>
+                    <p>Анадырь, столица Чукотского автономного округа, раскинулся на берегу Анадырского залива Берингова моря. Этот суровый, но по-своему прекрасный край является домом для уникальных народов Севера.</p>
+                    <p>Чукотка – это огромный, малонаселенный регион на крайнем северо-востоке России, покрытый тундрой, горами и прибрежными равнинами. Климат здесь субарктический, с продолжительной морозной зимой и коротким прохладным летом.</p>
+                    <p>Природа Чукотки поражает своей дикой красотой: бескрайние просторы, северное сияние, лежбища морских животных и богатство ресурсов.</p>
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h2 class="section-title">Коренные народы Анадыря</h2>
+                
+                <div class="peoples-grid">
+                    <!-- Эскимосы -->
+                    <div class="people-card">
+                        <img src="Img/13.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Эскимосы</h3>
+                        <div class="people-stats">
+                            <p>Численность: несколько сотен человек</p>
+                            <p>Один из малочисленных коренных народов Севера</p>
+                        </div>
+                        <p>Эскимосы, которых также называют <span class="highlight">юги</span>, исторически обитали на побережьях Чукотского полуострова, включая территории, прилегающие к Анадырскому заливу.</p>
+                        
+                        <div class="people-details">
+                            <h4>Места проживания</h4>
+                            <p>Анадырь и его окрестности, Сиреники, Уакит, Чкалов</p>
+                            
+                            <h4>Традиционные занятия</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Охота на морских млекопитающих</h4>
+                                    <p>Китов, моржей, нерп - основной источник пищи и материалов</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Рыболовство</h4>
+                                    <p>В реках и прибрежных водах</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Собирательство</h4>
+                                    <p>Съедобных растений в короткое лето</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Основные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Традиционная охота</h4>
+                                    <p>Использование гарпунов и острог с глубокими знаниями природы</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Обработка шкур</h4>
+                                    <p>Изготовление одежды, обуви и чехлов для лодок</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Резьба по кости</h4>
+                                    <p>Создание украшений и предметов быта из костей и бивней моржа</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Судостроение</h4>
+                                    <p>Традиционные лодки, обтянутые шкурами</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Чукчи -->
+                    <div class="people-card">
+                        <img src="Img/14.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Чукчи</h3>
+                        <div class="people-stats">
+                            <p>Численность: около 16 000 человек</p>
+                            <p>Наиболее многочисленный коренной народ Чукотки</p>
+                        </div>
+                        <p>Чукчи сформировались на крайнем северо-востоке Евразии и представляют собой один из самых известных символов Чукотки с уникальной культурой адаптации к Арктике.</p>
+                        
+                        <div class="people-details">
+                            <h4>Основные группы</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Тундровые чукчи (чаучу)</h4>
+                                    <p>Кочевые оленеводы, жизнь связана с гигантскими стадами оленей</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Береговые чукчи (анкальын)</h4>
+                                    <p>Оседлые охотники на морского зверя на побережьях</p>
+                                </div>
+                            </div>
+                            
+                            <h4>Места проживания</h4>
+                            <p>Анадырь, Лаврентия, Лорино, Уэлен, кочевые стойбища в тундре</p>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Основные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Крупностадное оленеводство</h4>
+                                    <p>Олень дает пищу, одежду, материалы для жилищ</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Морская охота</h4>
+                                    <p>Добыча кита, моржа, тюленя на байдарах</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Выделка шкур</h4>
+                                    <p>Создание одежды с уникальным меховым орнаментом</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Резьба по кости</h4>
+                                    <p>Миниатюрные скульптуры и гравированные картины</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Эвены -->
+                    <div class="people-card">
+                        <img src="Img/15.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Эвены</h3>
+                        <div class="people-stats">
+                            <p>Численность в России: около 22 000 человек</p>
+                            <p>Коренной тунгусский народ Северо-Востока Сибири</p>
+                        </div>
+                        <p>Эвены известны как искусные оленеводы и охотники, сумевшие освоить одни из самых суровых регионов планеты.</p>
+                        
+                        <div class="people-details">
+                            <h4>Места проживания на Чукотке</h4>
+                            <p>Билибинский район, село Омолон, западные районы округа</p>
+                            
+                            <h4>Традиционные занятия</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Транспортное оленеводство</h4>
+                                    <p>Олени как средство передвижения по тундре и тайге</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Охота</h4>
+                                    <p>Дикий олень, лось, горный баран, пушной зверь</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Рыболовство</h4>
+                                    <p>Стабильный источник пищи в летний период</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Основные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Пушной промысел</h4>
+                                    <p>Особенно важен для торговли с русскими и якутами</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Выделка шкур</h4>
+                                    <p>Создание практичной и красивой одежды с орнаментом</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Кузнечное дело</h4>
+                                    <p>Изготовление орудий труда и упряжи для оленей</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Меховая вышивка</h4>
+                                    <p>Украшение одежды подшейным волосом оленя</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Чуванцы -->
+                    <div class="people-card">
+                        <img src="Img/16.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Чуванцы</h3>
+                        <div class="people-stats">
+                            <p>Численность: около 1 500 человек</p>
+                            <p>Один из самых малочисленных коренных народов Севера</p>
+                        </div>
+                        <p>Чуванцы сформировались в бассейне реки Анадырь с уникальной культурой, представляющей синтез юкагирских, чукотских и русских традиций.</p>
+                        
+                        <div class="people-details">
+                            <h4>Места проживания</h4>
+                            <p>Марково, Чуванское, Анадырь</p>
+                            
+                            <h4>Исторические группы</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h4>Осёдлые чуванцы</h4>
+                                    <p>Рыболовство и охота на дикого оленя</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Оленные чуванцы</h4>
+                                    <p>Кочевое оленеводство под влиянием чукчей</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="crafts-section">
+                            <h4>Основные промыслы</h4>
+                            <div class="crafts-grid">
+                                <div class="craft-card">
+                                    <h4>Рыболовство</h4>
+                                    <p>Заготовка рыбы методом квашения и сушки</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Пушная охота</h4>
+                                    <p>Шкурки песца и соболя для торговли</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Выделка шкур</h4>
+                                    <p>Одежда с элементами русского кроя и орнамента</p>
+                                </div>
+                                <div class="craft-card">
+                                    <h4>Кузнечное дело</h4>
+                                    <p>Изготовление нарт, лодок-долбленок и орудий охоты</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

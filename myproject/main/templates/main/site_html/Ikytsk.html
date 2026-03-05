@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Республика Саха (Якутия) - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #0077be;
+        }
+
+        .peoples-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .people-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .people-info {
+            flex: 1;
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .people-stats {
+            color: #0077be;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .crafts-section {
+            margin-top: 25px;
+        }
+
+        .craft-title {
+            color: #005a8c;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #b3e0ff;
+        }
+
+        .craft-item {
+            margin-bottom: 20px;
+        }
+
+        .craft-item h4 {
+            color: #0077be;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .craft-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .craft-image {
+            width: 180px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #b3e0ff;
+            transition: transform 0.3s ease;
+        }
+
+        .craft-image:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .craft-card {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #b3e0ff;
+        }
+
+        .craft-card:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .craft-card h5 {
+            color: #005a8c;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .people-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .people-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .crafts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Республика Саха (Якутия)</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/Ikut.webp" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <p>Республика Саха (Якутия) — обширный регион, где издревле проживают представители разных народов. Основу этнического состава составляет коренное население — <span class="highlight">якуты (саха)</span>, чья культура и язык формировались на этой земле столетиями. Наряду с ними в республике живут потомки переселенцев из других регионов России и бывшего СССР: русские, украинцы, татары, белорусы, армяне, киргизы, корейцы и многие другие.</p>
+            </div>
+
+            <div class="peoples-section">
+                <h2 class="section-title">Народы Якутии</h2>
+
+                <!-- Якуты -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://i.pinimg.com/736x/d6/42/a7/d642a75e8b00a4479f3e20f6c9c21ede.jpg" alt="Якуты" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Якуты (саха)</h3>
+                            <p class="people-stats">В Республике Саха: 469 348 человек (55,3%) | В России: 478 409 человек</p>
+                            <p>Якуты — крупнейший коренной народ Сибири и Дальнего Востока в границах РФ, их язык относится к тюркской языковой семье.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4 class="craft-title">Народные промыслы</h4>
+                        
+                        <div class="crafts-grid">
+                            <div class="craft-card">
+                                <h5>Резьба по кости</h5>
+                                <p>Мастера создают произведения искусства из бивней мамонтов и моржовых клыков. Орнаменты часто вдохновлены природой, эпосом Олонхо или бытовыми сценами.</p>
+                                <div class="craft-images">
+                                    <img src="https://avatars.mds.yandex.net/i?id=1c82fa31faca88aa0e0402d73a167ea3_l-6998621-images-thumbs&n=13" alt="Резьба по кости" class="craft-image">
+                                    <img src="https://avatars.mds.yandex.net/i?id=b9386e313ed2afe88581c93c8279029a_l-4719838-images-thumbs&n=13" alt="Костяные изделия" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Ювелирное искусство</h5>
+                                <p>Традиционно используются серебро и медь. Украшения включают серьги, браслеты, нагрудные пластины и подвески. Узоры часто имеют сакральное значение.</p>
+                                <div class="craft-images">
+                                    <img src="https://avatars.mds.yandex.net/i?id=9a89e415d75fc98fde76d4dd62f3ccd2_l-11402455-images-thumbs&n=13" alt="Ювелирные изделия" class="craft-image">
+                                    <img src="https://avatars.mds.yandex.net/i?id=7b99c742263a33dd049cd050a7a521ff_l-7451990-images-thumbs&n=13" alt="Украшения" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Обработка дерева</h5>
+                                <p>Изготавливаются чороны (деревянные сосуды для кумыса), кытыйа (чаши), мебель. Древесина лиственницы и берёзы украшается резьбой и росписью.</p>
+                                <div class="craft-images">
+                                    <img src="https://geographyofrussia.com/wp-content/uploads/2015/04/1714.jpg" alt="Деревянные изделия" class="craft-image">
+                                    <img src="https://img-fotki.yandex.ru/get/9329/1551911.7d/0_13bd57_bb73e55e_orig.jpg" alt="Чороны" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Шитьё национальной одежды</h5>
+                                <p>Костюмы украшаются бисером, мехом, металлическими бляхами. Узоры на халадаях и ноговицах символизируют обереги и пожелания благополучия.</p>
+                                <div class="craft-images">
+                                    <img src="https://i.pinimg.com/736x/d6/42/a7/d642a75e8b00a4479f3e20f6c9c21ede.jpg" alt="Национальная одежда" class="craft-image">
+                                    <img src="https://i.pinimg.com/736x/23/32/25/23322542968e8a9ba890b0f44f157587.jpg" alt="Якутский костюм" class="craft-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Эвенки -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67489eb72256fe386c1c5b39_67489ee90148c5526b9c3f20/scale_1200" alt="Эвенки" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Эвенки</h3>
+                            <p class="people-stats">В Республике Саха: 20 782 человека | В России: 39 226 человек</p>
+                            <p>Эвенки — коренной народ Сибири, ведущий традиционный образ жизни, связанный с оленеводством, охотой и рыболовством. Они расселены на обширной территории от Енисея до Охотского моря.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4 class="craft-title">Народные промыслы</h4>
+                        
+                        <div class="crafts-grid">
+                            <div class="craft-card">
+                                <h5>Обработка шкур и бересты</h5>
+                                <p>Женщины выделывают кожу, шьют одежду, сумки, чехлы для упряжи. Береста используется для изготовления лодок, коробок, покрытий для жилищ.</p>
+                                <div class="craft-images">
+                                    <img src="https://static.ngs.ru/news/2022/external/71111096/images/55dab1e9c43142ea46a2863989e4b414.JPG" alt="Обработка шкур" class="craft-image">
+                                    <img src="https://avatars.mds.yandex.net/i?id=e7d859c8e30fdba63ec890e38df1260b_l-4580242-images-thumbs&n=13" alt="Берестяные изделия" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Резьба по дереву и кости</h5>
+                                <p>Мужчины создают домашнюю утварь, средства передвижения (нарты, лыжи), украшения. Орнаменты часто геометричны, символизируют природу и животных.</p>
+                                <div class="craft-images">
+                                    <img src="https://atlaskmns.ru/files/evenki/people_evenki_decoart_pic001.jpg" alt="Резьба по дереву" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Вышивка и аппликация</h5>
+                                <p>Одежда украшается бисером, шёлком, меховыми аппликациями. Женские коробки для рукоделия (авса/муручун) декорируются разноцветными полосками ткани и рисунками.</p>
+                                <div class="craft-images">
+                                    <img src="https://avatars.mds.yandex.net/i?id=a67e7cd896a47e3f404383567c030635_l-4576316-images-thumbs&n=13" alt="Вышивка" class="craft-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Эвены -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://www.kamcnt.ru/upload/iblock/eac/eac1628f62a448f4639981848bf9e377.jpg" alt="Эвены" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Эвены</h3>
+                            <p class="people-stats">В Республике Саха: ~13 200 человек (1,6%) | В России: 19 913 человек</p>
+                            <p>Эвены — коренной малочисленный народ Севера тунгусо-маньчжурской группы, преимущественно проживающий в северных и северо-восточных районах республики.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4 class="craft-title">Народные промыслы</h4>
+                        
+                        <div class="crafts-grid">
+                            <div class="craft-card">
+                                <h5>Оленеводство и обработка шкур</h5>
+                                <p>Из оленьих шкур шьют одежду, спальные мешки, сумки. Используются инструменты вроде «к'очай» (скребок) и «чочун» (инструмент с петлеобразным скребком).</p>
+                                <div class="craft-images">
+                                    <img src="https://media.nakanune.ru/images/pictures/image_big_103800.jpg" alt="Обработка шкур" class="craft-image">
+                                    <img src="https://i.cdn01.ru/files/users/images/21/c2/21c284528f6c8b6c60e75a4811f028aa.jpg" alt="Оленеводство" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Изготовление посохов (нимкани)</h5>
+                                <p>Эти предметы необходимы оленеводам для управления стадом. Посохи делают из каменной берёзы или ольхи, украшают орнаментом.</p>
+                                <div class="craft-images">
+                                    <img src="https://bibka-seymchan.ru/ssl/u/2e/b98004e2f811e8a05df8360f2aa061/-/%D0%9A%D0%BE%D0%BB%D0%BE%D1%82%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Посохи" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Создание кумаланов</h5>
+                                <p>Это коврики из шкур оленей или лосей, которые служат покрытиями для вьюков. У разных групп эвенов форма кумаланов различается.</p>
+                                <div class="craft-images">
+                                    <img src="https://sun9-42.userapi.com/impf/W23AJWyO2UFxDA8ToxEfmNPhlamjiuQWWdCdew/jDIRh2e-ung.jpg?size=320x297&quality=96&sign=64ca0d8ea44548875f4966bd6d597b77&c_uniq_tag=axE7v611O4sJVYem0ZNGUYMQ6H8wG8x24VCRBz8p8FQ&type=album" alt="Кумаланы" class="craft-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Юкагиры -->
+                <div class="people-card">
+                    <div class="people-header">
+                        <img src="https://arctic-megapedia.com/wp-content/uploads/2020/10/Yukagirki.jpg" alt="Юкагиры" class="people-image">
+                        <div class="people-info">
+                            <h3 class="people-name">Юкагиры</h3>
+                            <p class="people-stats">В Республике Саха: 1 510 человек | В России: 1 802 человека</p>
+                            <p>Юкагиры — один из древнейших коренных народов Северо-Восточной Сибири, относящийся к палеоазиатской группе. Их самоназвания — деткиль, одул, вадул (что означает «могучий, сильный»), алаи.</p>
+                        </div>
+                    </div>
+
+                    <div class="crafts-section">
+                        <h4 class="craft-title">Народные промыслы</h4>
+                        
+                        <div class="crafts-grid">
+                            <div class="craft-card">
+                                <h5>Резьба по дереву и кости</h5>
+                                <p>Изготавливали культовые антропоморфные фигуры, которые служили оберегами или символами духов-хозяев. Резчики по мамонтовой кости создают фигурки и украшают кость орнаментом.</p>
+                                <div class="craft-images">
+                                    <img src="https://arctic-megapedia.com/wp-content/uploads/2020/10/Amulet1.jpg" alt="Резьба по кости" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Шитьё из меха и кожи</h5>
+                                <p>Традиционная одежда шилась из оленьего меха, ровдуги (замши из лосиной или оленьей шкуры), рыбьей кожи. Женщины изготавливали сумки из кожи рыб, гусиных и лебединых лапок.</p>
+                                <div class="craft-images">
+                                    <img src="https://arctic-megapedia.com/wp-content/uploads/2020/10/Yukagirki.jpg" alt="Одежда" class="craft-image">
+                                    <img src="https://kamchatka-museum.ru/wp-content/uploads/2018/07/GI-23364.-SUMKA-ZHENSKAYA.-M.-I.-Pritchina.-Meh-nerpy-vydry-rovduga-biser-mozaika-iz-kozhi.jpg" alt="Сумки" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Плетение</h5>
+                                <p>Плели корзины из тальника, ремни и верёвки для упряжи, сетей, неводов.</p>
+                                <div class="craft-images">
+                                    <img src="https://bibka-seymchan.ru/ssl/u/pic/4d/94c66001d711ea90567c0dbd17b6f5/-/%D0%9A%D0%9C%D0%9D%D0%A1.jpg" alt="Плетение" class="craft-image">
+                                </div>
+                            </div>
+                            
+                            <div class="craft-card">
+                                <h5>Изготовление украшений</h5>
+                                <p>Женщины носили металлические бляхи («грудное солнце»), подвески, медные кольца. Используют бисер, кожу, мех, древесный лык для отделки одежды и аксессуаров.</p>
+                                <div class="craft-images">
+                                    <img src="https://ethnomuseum.ru/images/NIWPOSETITLU/Vistavki/2022/kochuVistav/5.jpg" alt="Украшения" class="craft-image">
+                                    <img src="https://cf2.ppt-online.org/files2/slide/z/zostkP3nMmv4295UYDFeSJQGN0fApd8WihXqTx6bg/slide-13.jpg" alt="Пиктографическое письмо" class="craft-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

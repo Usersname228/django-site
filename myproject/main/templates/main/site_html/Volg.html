@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волгоградская область - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #0077be;
+        }
+
+        .historical-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            border-left: 5px solid #0077be;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0077be, #005a8c);
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .people-stats {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .people-stats p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .crafts-list {
+            margin-top: 15px;
+        }
+
+        .crafts-list h4 {
+            color: #0077be;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .crafts-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .crafts-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #b3e0ff;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .crafts-list li:before {
+            content: '•';
+            color: #0077be;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .modern-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .modern-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Волгоградская область</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/volg.webp" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <p>На территории современного Волгограда и его окрестностей проживали и продолжают проживать различные народы, сформировавшие богатое культурное и историческое наследие региона.</p>
+            </div>
+
+            <div class="historical-section">
+                <h2 class="section-title">Историческое развитие региона</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Древние времена</h3>
+                        <p>Истоки заселения региона восходят к древним племенам <span class="highlight">скифов, сарматов</span> и местных народов, которые занимались скотоводством, земледелием и ремеслом. Эти племена оставили богатое археологическое наследие в виде курганов, памятников и предметов быта.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>Казачество</h3>
+                        <p>В <span class="highlight">XVI–XVII веках</span> на этих землях активно развивалось казачество. Казачьи станицы служили сторожевыми постами и защитой границ России. Казачьи общины сыграли важную роль в освоении и защите южных территорий, вели промыслы, воевали и участвовали в создании местной культуры.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>Народы, проживавшие в XX веке</h3>
+                        <p>В советское время в регионе сформировались многокультурные сообщества. Здесь проживали представители различных народов: <span class="highlight">русские, казахи, украинцы, адыги, калмыки, чеченцы, ингуши</span> и другие. Эти народы сохраняли свои традиции, язык и ремесла, активно участвовали в развитии региона.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historical-section">
+                <h2 class="section-title">Народы Волгоградской области</h2>
+                
+                <div class="peoples-grid">
+                    <!-- Русские -->
+                    <div class="people-card">
+                        <img src="Volg/1.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Русские</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 2,5-3 миллионов человек</p>
+                            <p>Более 80% населения региона</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> Основные населённые пункты — Волгоград, Краснослободск, Волжский и окружающие районы.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ткачество, плетение, кузнечное дело — традиционные ремёсла, передаваемые из поколения в поколение</li>
+                                <li>Художественная обработка дерева и металла — изготовление предметов быта, икон, украшений, посуды</li>
+                                <li>Создание традиционной одежды и вышивки — использование ярких узоров и техник вышивки</li>
+                                <li>Пчеловодство — производство мёда и воска, важное для питания и медицинских целей</li>
+                                <li>Плотницкое и столярное дело — создание мебели, деревянных домиков, лодок</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Казахи -->
+                    <div class="people-card">
+                        <img src="Volg/2.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Казахи</h3>
+                        <div class="people-stats">
+                            <p>Населенность: примерно 10-15 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В основном в южных районах области, где сохраняются казачьи станицы и казахские поселения.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Кочевое скотоводство — основа их традиционного хозяйства</li>
+                                <li>Производство национальных юрт и кожаных изделий</li>
+                                <li>Изготовление ковров и текстиля — используют шерсть для создания украшений и одеял</li>
+                                <li>Ткачество и вышивка — создают традиционные орнаменты для одежды</li>
+                                <li>Изготовление национальных музыкальных инструментов — шемейки, домбры</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Украинцы -->
+                    <div class="people-card">
+                        <img src="Volg/3.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Украинцы</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 20-30 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В основном в городах и селах, расположенных вдоль Волги и в пригородных районах.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ткачество и вышивка — славятся вышитыми рушниками, платьями и одеждой</li>
+                                <li>Гончарное дело — изготовление глиняной посуды, утвари, декоративных изделий</li>
+                                <li>Ремесло солений и консервирования продуктов — сохранение продуктов для зимы</li>
+                                <li>Изготовление деревянных изделий и мебель — резьба по дереву</li>
+                                <li>Плетение корзин и изделий из лозы — для хозяйственных нужд и украшений</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Адыги (черкесы) -->
+                    <div class="people-card">
+                        <img src="Volg/4.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Адыги (черкесы)</h3>
+                        <div class="people-stats">
+                            <p>Населенность: примерно 5-8 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В основном в южных районах региона, в близости к Кавказским горным районам.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ковроткачество и ткачество шерсти — создание ковров, покрывал и тканей</li>
+                                <li>Изготовление национальной одежды и головных уборов — использование шерсти и кожи</li>
+                                <li>Ковка металлов — изготовление ножей, украшений и оружия</li>
+                                <li>Ремесло по изготовлению кожаных изделий и обуви — ремни, сумки, обувь</li>
+                                <li>Изготовление традиционных музыкальных инструментов и украшений</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Кумыки -->
+                    <div class="people-card">
+                        <img src="Volg/5.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Кумыки</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 3-5 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В южных и юго-восточных районах региона, в степных и полупустынных зонах.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Животноводство — содержание овец, коз, лошадей</li>
+                                <li>Производство шерстяных тканей и ковров — для одежды и домашнего обихода</li>
+                                <li>Изготовление кожаных изделий, кумыковские ремесла — обувь, сумки, ремни</li>
+                                <li>Ремесла по обработке тканей и одежды — ткачество, вышивка</li>
+                                <li>Ремесла в области охоты и рыболовства — изготовление орудий и снастей</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Татары -->
+                    <div class="people-card">
+                        <img src="Volg/6.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Татары</h3>
+                        <div class="people-stats">
+                            <p>Населенность: примерно 10-15 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В основном в районах, близких к Волгограду и в степных регионах.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ткачество и вышивка — создание тканей для одежды, одеял и ковров</li>
+                                <li>Производство национальных ковров и тканей — ручная работа, использующая яркие красители</li>
+                                <li>Гончарное дело — изготовление посуды, декоративных изделий</li>
+                                <li>Изготовление ювелирных украшений и металлических изделий — серебряные и золотые украшения</li>
+                                <li>Ремесло по изготовлению национальной одежды и головных уборов</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Чеченцы и ингуши -->
+                    <div class="people-card">
+                        <img src="Volg/7.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Чеченцы и ингуши</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 3-5 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В южных приграничных районах, ближе к Кавказу.</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ковка металлов — создание ножей, украшений, оружия</li>
+                                <li>Изготовление кожаных изделий и ремней — для одежды и хозяйственных нужд</li>
+                                <li>Ткачество и вышивка национальных тканей — создание красивых и практичных предметов одежды</li>
+                                <li>Изготовление деревянных предметов и мебели — резьба по дереву</li>
+                                <li>Ремесло по изготовлению музыкальных инструментов и традиционных украшений</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-section">
+                <h3>Современность</h3>
+                <p>Сегодня в Волгограде и области продолжают сосуществовать разные этнические сообщества. Они вносят значительный вклад в культурное разнообразие региона, сохраняют традиционные ремесла, праздники и обычаи. В регионе проводятся мероприятия, укрепляющие межнациональное согласие и дружбу.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

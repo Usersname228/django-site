@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ленинградская область - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+        
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #0077be;
+        }
+
+        .historical-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            border-left: 5px solid #0077be;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #0077be;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #b3e0ff;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0077be, #005a8c);
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .people-stats {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .people-stats p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .crafts-list {
+            margin-top: 15px;
+        }
+
+        .crafts-list h4 {
+            color: #0077be;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .crafts-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .crafts-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #b3e0ff;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .crafts-list li:before {
+            content: '•';
+            color: #0077be;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        .modern-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .modern-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .ethnic-map {
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .ethnic-map h3 {
+            color: #005a8c;
+            margin-bottom: 15px;
+        }
+
+        .people-image {
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #0077be;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #b3e0ff, #e6f7ff);
+            border: 2px dashed #0077be;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 15px 0;
+            color: #005a8c;
+            font-style: italic;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ленинградская область</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/lenen.jpg" alt="Флаг Красноярского края" width="700px">
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <p>Ленинградская область — регион с богатым этническим и историческим наследием, в котором проживали и продолжают жить разные народы.</p>
+            </div>
+
+            <div class="historical-section">
+                <h2 class="section-title">Историческое развитие региона</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Древние времена</h3>
+                        <p>На территории современной Ленинградской области с древних времен жили <span class="highlight">финно-угорские народы</span>, такие как ижорцы, карелы, луговики и вепсы. Эти народы занимались охотой, рыболовством и земледелием, создавали уникальные культурные традиции и ремесла.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>Средние века</h3>
+                        <p>В Средние века территория входила в состав <span class="highlight">Новгородской земли</span>, которая была важным торговым и культурным центром Северо-Запада России. В это время развивались торговые пути, укреплялись города и крепости.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>Новое время</h3>
+                        <p>В <span class="highlight">XVII–XVIII веках</span> регион стал частью Российской империи, началось развитие промышленных предприятий, строительство портов и городов. В этот период усилилась русская культурная и этническая доминанта, однако финно-угорские народы сохраняли свои традиции и язык.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>XX век</h3>
+                        <p>В советское время Ленинградская область стала важным промышленным и научным центром. В годы <span class="highlight">Великой Отечественной войны</span> регион и его население понесли тяжелые потери, но также внесли значительный вклад в победу. После войны регион активно развивался, строились новые города, промышленные предприятия и инфраструктура.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ethnic-map">
+                <h3>Этническая карта Ленинградской области</h3>
+                <div class="map-placeholder">
+                    Карта расселения народов Ленинградской области<br>
+                    (Русские, Карелы, Вепсы, Ижорцы и другие народы)
+                </div>
+                <p>Регион отличается разнообразным этническим составом, где каждый народ сохраняет свои уникальные традиции и культуру.</p>
+            </div>
+
+            <div class="historical-section">
+                <h2 class="section-title">Народы Ленинградской области</h2>
+                
+                <div class="peoples-grid">
+                    <!-- Русские -->
+                    <div class="people-card">
+                        <img src="Img/8.webp" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Русские</h3>
+                        <div class="people-stats">
+                            <p>Населенность: примерно 1,8-2 миллиона человек</p>
+                            <p>Более 95% населения области</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> По всей территории Ленинградской области</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ремесло ремесленников (ткачество, плетение, кузнечное дело) — передающиеся из поколения в поколение</li>
+                                <li>Художественная обработка дерева и металла — изготовление резных изделий, посуды, украшений</li>
+                                <li>Создание традиционной одежды и вышивки — использование национальных орнаментов</li>
+                                <li>Пчеловодство — производство мёда, воска, прополиса</li>
+                                <li>Плотницкое и столярное дело — изготовление мебели, лодок, деревянных домов</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Карелы -->
+                    <div class="people-card">
+                        <img src="Img/10.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Карелы</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 3-4 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В северных и северо-западных районах области, в Карелии</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ремесло по обработке дерева — резьба по дереву, изготовление посуды, мебельных изделий</li>
+                                <li>Изготовление традиционных народных костюмов и вышивки — узорчатые одежды, украшения из бисера</li>
+                                <li>Ковроткачество и ткачество шерсти — создание ковров, покрывал, одежды и аксессуаров</li>
+                                <li>Ремесло по изготовлению украшений из серебра и металлов — серьги, браслеты, амулеты</li>
+                                <li>Рыболовство и охота — важная часть традиционного хозяйства</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Вепсы -->
+                    <div class="people-card">
+                        <img src="Img/11.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Вепсы</h3>
+                        <div class="people-stats">
+                            <p>Населенность: примерно 1-2 тысячи человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В южных частях Карелии и Ленинградской области</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ремесло по обработке дерева — изготовление посуды, игрушек, предметов быта</li>
+                                <li>Изготовление народных костюмов и вышивки — использование натуральных тканей, украшений</li>
+                                <li>Ковроткачество — создание ковров и ковровых изделий с традиционными узорами</li>
+                                <li>Ремесло по изготовлению украшений из металла и камня — амулеты, украшения</li>
+                                <li>Рыболовство — важная часть хозяйства, использование ремесленных орудий</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Ижорцы -->
+                    <div class="people-card">
+                        <img src="Img/12.jpg" alt="Якуты" class="people-image">
+                        <h3 class="people-name">Ижорцы</h3>
+                        <div class="people-stats">
+                            <p>Населенность: около 1-2 тысяч человек</p>
+                        </div>
+                        <p><strong>Местоположение:</strong> В лесных районах, в основном в южной части области</p>
+                        <div class="crafts-list">
+                            <h4>Традиционные ремесла:</h4>
+                            <ul>
+                                <li>Ремесло по обработке дерева — резьба, изготовление мебели, утвари</li>
+                                <li>Изготовление народных костюмов и вышивки — яркие узоры, бисерные украшения</li>
+                                <li>Плетение из лозы и соломы — корзины, мебель, украшения</li>
+                                <li>Ремесло по изготовлению украшений из металлов и стекла — бусы, подвески</li>
+                                <li>Рыболовство и охота — использование ремесленных орудий</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-section">
+                <h3>Современность</h3>
+                <p>Сегодня Ленинградская область — это многокультурный регион, где живут представители русской, карельской, финно-угорских и других народов. Регион славится своей природой, историческими памятниками, культурным наследием и развитой промышленностью.</p>
+                <p style="margin-top: 15px;">Сохраняя традиции предков, народы Ленинградской области продолжают развивать уникальные ремесла, которые являются важной частью культурного наследия всего Северо-Западного региона России.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>

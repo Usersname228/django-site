@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чеченская Республика - культурное наследие</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+            color: #003366;
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 87, 146, 0.15);
+            overflow: hidden;
+        }
+
+        .flag-section {
+            text-align: center;
+            padding: 30px;
+            background: #f0f8ff;
+        }
+
+        .flag-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 87, 146, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077be 0%, #005a8c 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section-title {
+            color: #005a8c;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #b3e0ff;
+            padding-bottom: 10px;
+        }
+
+        .history-section {
+            margin-bottom: 50px;
+        }
+
+        .history-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077be;
+        }
+
+        .history-card h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .language-card {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .language-card h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .peoples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .people-card {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #b3e0ff;
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 87, 146, 0.2);
+        }
+
+        .people-name {
+            color: #005a8c;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .culture-section {
+            margin-bottom: 50px;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .culture-item {
+            background: #e6f2ff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .culture-item:hover {
+            background: #d4e8ff;
+            transform: translateY(-3px);
+        }
+
+        .culture-item h4 {
+            color: #0077be;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .religion-section {
+            background: #f0f8ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .religion-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .economy-section {
+            margin-bottom: 50px;
+        }
+
+        .economy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .economy-item {
+            background: #f8fbff;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #0077be;
+        }
+
+        .economy-item h4 {
+            color: #0077be;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .traditions-section {
+            background: #e6f2ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .traditions-section h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .bibliography {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 5px solid #005a8c;
+        }
+
+        .bibliography h3 {
+            color: #005a8c;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .bibliography ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .bibliography li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #b3e0ff;
+        }
+
+        .bibliography a {
+            color: #0077be;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .bibliography a:hover {
+            color: #005a8c;
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #b3e0ff 0%, #b3e0ff 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 2px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #005a8c 0%, #003366 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .peoples-grid,
+            .culture-grid,
+            .economy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Чеченская Республика</h1>
+        </header>
+
+        <div class="flag-section">
+            <img src="Img-regions/Chech.jpg" alt="Флаг Красноярского края" width="700px">
+        </div>
+        
+        <div class="content">
+            <div class="history-section">
+                <h2 class="section-title">История населённых народов</h2>
+                
+                <div class="history-card">
+                    <h3>Древние корни</h3>
+                    <p>На территории современной Чеченской Республики с древних времён проживали разные народы, особенно <span class="highlight">чеченцы</span> — один из старейших народов Кавказа. Их историческая родина — горные районы Кавказа, где формировались уникальные культурные и этнические особенности.</p>
+                    <p>История чеченцев насчитывает тысячелетия: в древности они входили в состав кавказских и ближневосточных культурных объединений и активно защищали свои земли в средние века, участвуя в многочисленных войнах.</p>
+                </div>
+
+                <div class="language-card">
+                    <h3>Чеченский язык</h3>
+                    <p>Чеченский язык — один из древнейших и уникальных языков Кавказа. Он относится к <span class="highlight">ностратической языковой семье</span>, к нахско-дагестанской группе.</p>
+                    <p>Чеченский язык имеет богатую систему гласных и согласных звуков, а также сложную грамматику и богатый фольклор.</p>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h2 class="section-title">Народы региона</h2>
+                
+                <div class="peoples-grid">
+                    <div class="people-card">
+                        <h3 class="people-name">Хевсуры</h3>
+                        <p>Хевсуры — одни из самых древних народов Кавказа, населявшие горные районы. Главные ремесленники, снабжавшие ресурсами большую часть Кавказа.</p>
+                        <p><strong>Численность:</strong> около 60 тысяч человек</p>
+                        <p><strong>Территория:</strong> Хевсуретия — исторический регион на северо-востоке Грузии</p>
+                        <p>По-грузински «Хевсуриеэти» означает — «Ущелье, где живут „урии"», то есть евреи.</p>
+                    </div>
+
+                    <div class="people-card">
+                        <h3 class="people-name">Вайнахи</h3>
+                        <p>Горный народ, населявший Южный Кавказ, известный своей воинственностью и богатой культурой.</p>
+                        <p>Вайнахи составляют основу чеченского и ингушского народов, сохраняя общие культурные и языковые традиции.</p>
+                    </div>
+
+                    <div class="people-card">
+                        <h3 class="people-name">Ульчи</h3>
+                        <p>Древний народ, населявший южные районы региона, с богатой традиционной культурой и языком.</p>
+                        <p><strong>Численность:</strong> около 3000 человек во всем мире</p>
+                        <p><strong>Территория:</strong> Хабаровский край, Еврейская автономная область, Санкт-Петербург, Приморский и Камчатский край, Украина</p>
+                        <p>В середине 19 века ульчи жили вдоль реки Амур, между селениями Ухта и Кульгу.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture-section">
+                <h2 class="section-title">Культура</h2>
+                <p>Культура чеченцев богата традициями, обрядами и искусством:</p>
+                
+                <div class="culture-grid">
+                    <div class="culture-item">
+                        <h4>Праздники и обряды</h4>
+                        <p>Важное место занимают свадьбы, связанные с богатым ритуалом и символизмом</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Фольклор</h4>
+                        <p>Народные сказки, эпосы, песни и танцы отражают героизм, честь и уважение к предкам</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Ремёсла</h4>
+                        <p>Изготовление оружия, ювелирных украшений, керамики, ковров и текстиля</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Музыка и танцы</h4>
+                        <p>Характерные быстрые и динамичные. Инструменты: дудуки, свирели, бубенцы, каманджа и лютня</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="religion-section">
+                <h3>Религия</h3>
+                <p>Религия играет важную роль в жизни чеченцев:</p>
+                
+                <div class="culture-grid">
+                    <div class="culture-item">
+                        <h4>Ислам</h4>
+                        <p>Основная религия, принятая с XV века. В основном суннитского направления, с сильными традициями суфизма</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Религиозные обряды</h4>
+                        <p>Пятничные молитвы, празднование Курбан-Байрама, Ураза-байрам</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Религиозные лидеры</h4>
+                        <p>Имамы и муфтии выполняют духовное руководство и участвуют в общественной жизни</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="economy-section">
+                <h2 class="section-title">Промышленность и экономика</h2>
+                <p>Исторически экономика региона основывалась на ремёслах, скотоводстве и земледелии:</p>
+                
+                <div class="economy-grid">
+                    <div class="economy-item">
+                        <h4>Кузнечное дело и оружейное производство</h4>
+                        <p>Высокое мастерство в изготовлении холодного и огнестрельного оружия, украшений</p>
+                    </div>
+                    
+                    <div class="economy-item">
+                        <h4>Ремёсла</h4>
+                        <p>Ковка, ткачество, изготовление кожаных изделий, вышивка и плетение</p>
+                    </div>
+                    
+                    <div class="economy-item">
+                        <h4>Скотоводство</h4>
+                        <p>Развивалось в горных районах, обеспечивая мясо, молочные продукты, шерсть и кожу</p>
+                    </div>
+                    
+                    <div class="economy-item">
+                        <h4>Земледелие</h4>
+                        <p>Выращивание зерновых, овощей и фруктов в низинах и долинах</p>
+                    </div>
+                    
+                    <div class="economy-item">
+                        <h4>Торговля</h4>
+                        <p>Обмен ремёсленными изделиями, скотом и сельскохозяйственной продукцией</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="traditions-section">
+                <h3>Традиции и обычаи</h3>
+                
+                <div class="culture-grid">
+                    <div class="culture-item">
+                        <h4>Гостеприимство</h4>
+                        <p>Одна из важнейших ценностей, гости всегда встречаются с уважением и щедростью</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Кавказский костюм</h4>
+                        <p>Яркий и богатый, включает папаху, шубу, ковровые украшения</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Общинные собрания</h4>
+                        <p>Важные решения принимались на народных сходах, где присутствовали старейшины</p>
+                    </div>
+                    
+                    <div class="culture-item">
+                        <h4>Патриотизм и воинская доблесть</h4>
+                        <p>Исторически чеченцы славились своей храбростью, защите родных земель</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Карта народов России. Информация носит ознакомительный характер.</p>
+        </footer>
+    </div>
+</body>
+</html>
